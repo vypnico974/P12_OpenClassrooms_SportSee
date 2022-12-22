@@ -1,0 +1,28 @@
+*{
+    -webkit-box-sizing: border-box;    
+            box-sizing: border-box;
+    max-width: 1864px;
+}
+
+@media screen and (min-width:1864px){
+    html {
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      }
+  }
+
+body {
+    margin: auto;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+      "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+

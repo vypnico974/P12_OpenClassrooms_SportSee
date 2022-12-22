@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react"
+import { Routes, Route } from "react-router-dom"
 
-function App() {
+import Header from './components/Header'
+import VerticalNav from './components/VerticalNav'
+import Home from "./pages/Home"
+import Error from "./pages/Error"
+import User from "./pages/User"
+
+import styled from 'styled-components'
+import './styles/normalize.css'
+import './styles/global.css'
+
+const Container = styled.div `
+  display: -webkit-box;
+`
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+  <Header />
+    <Container> 
+      <VerticalNav />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/user/:id" element={<User />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Container>
+      
+  
+  
+  </>
+  )
 }
 
-export default App;
