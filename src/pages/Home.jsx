@@ -1,10 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-// import {getUserInfos, getUserActivity, getUserAverageSessions, getUserPerformance}
-//     from '../utils/ApiCall'
-// import {mockUserInfos, mockUserActivity, mockUserAverageSessions, mockUserPerformance }
-//     from '../utils/mocksCall'
+//import {getUserInfos}    from '../utils/ApiCall'
+//import {mockUserInfos }  from '../utils/mocksCall'
 
 
 const Main = styled.main`
@@ -25,15 +23,15 @@ const Title = styled.h1`
 margin: 1em 0em;
 `
  
-/** create home page
+/** render home page
  * @return {JSX}
  */
 export default function Home() {
-    // console.log(getUserInfos(12))
+    //console.log(getUserInfos(18))
     // console.log(getUserActivity(12))
     // console.log(getUserAverageSessions(12))
     // console.log(getUserPerformance(12))
-    // console.log(mockUserInfos(12))
+    //console.log(mockUserInfos(18))
     // console.log(mockUserActivity(12))
     // console.log(mockUserAverageSessions(12))
     // console.log(mockUserPerformance(12))   

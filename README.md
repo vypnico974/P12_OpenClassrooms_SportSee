@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- [NodeJS (version 18.7.0)](https://nodejs.org/en/)
+- [NodeJS ( >= version 18.7.0)](https://nodejs.org/en/)
 
 ## Dependencies
 
@@ -21,6 +21,6 @@
 1. Get the backend
 
 - This project uses an API available [here](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard).
-- There are 2 users available, their URL are :
+- There are 2 users available and their URL are :
   - `http://localhost:3000/user/12`
   - `http://localhost:3000/user/18`

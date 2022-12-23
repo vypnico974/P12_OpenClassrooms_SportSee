@@ -37,7 +37,7 @@ const Nav = styled.nav `
 	}
 `
 
-/** create header with navlink
+/** render header component with navlink
  * @return {JSX}
  */
 export default function Header() {

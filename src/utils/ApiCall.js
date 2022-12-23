@@ -13,10 +13,27 @@ const baseURL = 'http://localhost:3000/'
  */
 export const getUserInfos = async (id) => {
 	try {
-		const res = await axios.get(`${baseURL}user/${id}`)
-		return res.data
-	} catch (e) {
-		console.log(e)
+		const reponse = await axios.get(`${baseURL}user/${id}`)
+		//console.log(reponse)
+		return  {
+			error:'',
+			firstName: reponse.data.data.userInfos.firstName,
+			score: (reponse.data.data.score*100) || (reponse.data.data.todayScore*100),
+			calorieCount: reponse.data.data.keyData.calorieCount,
+			proteinCount: reponse.data.data.keyData.proteinCount,
+			carbohydrateCount: reponse.data.data.keyData.carbohydrateCount,
+			lipidCount: reponse.data.data.keyData.lipidCount
+		}			
+		} catch (e) {
+		return {
+			error:'error',
+			// firstName : '',
+			// score: '',
+			// calorieCount: '',
+			// proteinCount: '',
+			// carbohydrateCount: '',
+			// lipidCount:'',
+		}	
 	}
 }
 getUserInfos.PropTypes = {

@@ -17,6 +17,9 @@ const Title = styled.h1`
 font-size: 8rem;
 `
 
+/** render error page
+ * @return {JSX}
+ */
 export default function Error() {
     return (
         <Main>

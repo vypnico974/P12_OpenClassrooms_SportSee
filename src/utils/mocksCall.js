@@ -12,10 +12,27 @@ import PropTypes from 'prop-types'
  */
 export const mockUserInfos = async (id) => {
 	try {
-        const res = USER_MAIN_DATA.find((el) => el.id === id)
-		return {data:res}
-	} catch (e) {
-		console.log(e)
+        const reponse = USER_MAIN_DATA.find((el) => el.id === id)
+		//console.log(reponse)
+		return {
+			error:'',
+			firstName: reponse.userInfos.firstName,
+			score: (reponse.score*100) || (reponse.todayScore*100),
+			calorieCount: reponse.keyData.calorieCount,
+			proteinCount: reponse.keyData.proteinCount,
+			carbohydrateCount: reponse.keyData.carbohydrateCount,
+			lipidCount: reponse.keyData.lipidCount
+		}				
+		} catch (e) {
+		return {
+			error:'error',
+			firstName : '',
+			score: '',
+			calorieCount: '',
+			proteinCount: '',
+			carbohydrateCount: '',
+			lipidCount:'',
+		}
 	}
 }
 mockUserInfos.PropTypes = {
@@ -31,7 +48,7 @@ mockUserInfos.PropTypes = {
  */
 export const mockUserActivity = async (id) => {
 	try {
-		const res = USER_ACTIVITY.find((el) => el.userId === id);
+		const res = USER_ACTIVITY.find((el) => el.userId === id)
 		return {data:res};
 	} catch (e) {
 		console.log(e);

@@ -53,7 +53,7 @@ const NavText = styled.p `
     margin:auto;
 `
 
-/** create vertical navigation with navlink
+/** rental vertical navigation component with navlink 
  * @return {JSX}
  */
 export default function VerticalNav() {
