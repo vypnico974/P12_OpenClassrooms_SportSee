@@ -26,10 +26,7 @@ export default function App() {
         <Route path="/user/:id" element={<User />} />
         <Route path="*" element={<Error />} />
       </Routes>
-    </Container>
-      
-  
-  
+    </Container>  
   </>
   )
 }

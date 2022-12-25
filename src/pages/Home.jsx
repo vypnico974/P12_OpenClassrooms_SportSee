@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 const Main = styled.main`
 margin-left: 100px;
+height:33rem;
   a{
       display:flex;
       flex-direction:column;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 
 /**
- * Mock user infos
+ * Mock user infos data
  *
  * @param {number} id User id
  * @returns {object} Response
@@ -31,7 +31,7 @@ export const mockUserInfos = async (id) => {
 			calorieCount: '',
 			proteinCount: '',
 			carbohydrateCount: '',
-			lipidCount:'',
+			lipidCount:''
 		}
 	}
 }
@@ -41,17 +41,23 @@ mockUserInfos.PropTypes = {
 
 
 /**
- * Mock user activity 
+ * Mock user activity data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const mockUserActivity = async (id) => {
 	try {
-		const res = USER_ACTIVITY.find((el) => el.userId === id)
-		return {data:res};
+		const reponse = USER_ACTIVITY.find((el) => el.userId === id)
+		return {
+			error:'',
+			sessions: reponse.sessions
+		}
 	} catch (e) {
-		console.log(e);
+		return {
+			error:'error',
+			sessions: ''
+		}
 	}
 }
 mockUserActivity.PropTypes = {

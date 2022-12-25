@@ -16,7 +16,7 @@ const Nav = styled.div `
     flex-direction:column;
     justify-content:space-between;
     width : 117px;
-    min-height: 85vh;
+    height: 100%;
     background: #020203;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     top:0;

@@ -6,7 +6,7 @@ const baseURL = 'http://localhost:3000/'
 
 
 /**
- * Get user infos
+ * Get user infos data
  *
  * @param {number} id User id
  * @returns {object} Response
@@ -27,12 +27,12 @@ export const getUserInfos = async (id) => {
 		} catch (e) {
 		return {
 			error:'error',
-			// firstName : '',
-			// score: '',
-			// calorieCount: '',
-			// proteinCount: '',
-			// carbohydrateCount: '',
-			// lipidCount:'',
+			firstName : '',
+			score: '',
+			calorieCount: '',
+			proteinCount: '',
+			carbohydrateCount: '',
+			lipidCount:'',
 		}	
 	}
 }
@@ -42,17 +42,23 @@ getUserInfos.PropTypes = {
 
 
 /**
- * Get user activity 
+ * Get user activity data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const getUserActivity = async (id) => {
 	try {
-		const res = await axios.get(`${baseURL}user/${id}/activity`)
-		return res.data
+		const reponse = await axios.get(`${baseURL}user/${id}/activity`)
+		return {
+			error:'',
+			sessions: reponse.data.data.sessions
+		}
 	} catch (e) {
-		console.log(e)
+		return {
+			error:'error',
+			sessions: ''
+		}
 	}
 }
 getUserActivity.PropTypes = {
