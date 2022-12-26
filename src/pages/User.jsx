@@ -7,6 +7,8 @@ import {getData} from '../utils/getData'
 import UserInfo from '../components/UserInfo'
 import KeyData from '../components/KeyData'
 import BarChartActivity from '../components/BarChartActivity'
+import LineChartSessions from '../components/LineChartSessions'
+import RadarChartPerformance from '../components/RadarChartPerformance'
 
 import styled from 'styled-components'
 
@@ -31,10 +33,14 @@ flex-direction: row;
 `
 
 const ContainerLeft = styled.div`
-width: 800px;
+width: 850px;
 margin-top: 77px;
   @media screen and (max-width: 1300px) {
     width: 850px;
+  }
+`
+const ContainerLeftChart = styled.div`
+display:flex;
   }
 `
 const ContainerRight = styled.div`
@@ -73,81 +79,146 @@ height:124px;
  * @return {JSX}
  */
 export default function User() {
-   
-   // console.log(getData("USER_MAIN_DATA",12))
-  // console.log(getData("USER_ACTIVITY",12))
-   const [UserMainData, setUserMainData] = useState([]);
-   const [UserActivityData, setUserActivityData] = useState([]);
-   const { id } = useParams()
-   const idCurrent = parseInt(id)
-   
-   useEffect(() => {
+
+    
+  const [userMainData, setUserMainData] = useState([])
+  const [userActivityData, setUserActivityData] = useState([])
+  const [userAverageSessionsData, setUserAverageSessionsData] = useState([])
+  const [userPerformanceData, setUserPerformanceData] = useState([])
+  const { id } = useParams()
+  const idCurrent = parseInt(id)
+
+  // console.log(getData("USER_MAIN_DATA",idCurrent))
+  // console.log(getData("USER_ACTIVITY",idCurrent))
+ // console.log(getData("USER_AVERAGE_SESSIONS",idCurrent))
+ // console.log(getData("USER_PERFORMANCE",idCurrent))  
+  
+  
+  useEffect(() => {
     const data = async () => {
       const request = await getData("USER_MAIN_DATA",idCurrent)
       if (!request) console.log("data error")
      // console.log(request)
      setUserMainData(request)
-    }
-    data()  
- 
-    }, [idCurrent])
+  }
+  data()   
+  }, [idCurrent])
 
-    useEffect(() => {
-      const data = async () => {
-        const request = await getData("USER_ACTIVITY",idCurrent)
-        if (!request) console.log("data error")
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_ACTIVITY",idCurrent)
+      if (!request) console.log("data error")
        // console.log(request)
         setUserActivityData(request)
-      }
-      data()  
-   
-      }, [idCurrent])
-
-  if ((!UserMainData) || (!UserActivityData))  return null
-
-  if (UserActivityData.sessions){
-    //format UserActivityData.sessions.day
-    for (let i = 0 ; i < UserActivityData.sessions.length ; i ++){
-      UserActivityData.sessions[i].day = i + 1
     }
-  //  console.log('format day: ',UserActivityData.sessions)
+  data()    
+  }, [idCurrent])
+
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_AVERAGE_SESSIONS",idCurrent)
+      if (!request) console.log("data error")
+      //  console.log(request)
+        setUserAverageSessionsData(request)
+    }
+  data()    
+  }, [idCurrent])
+
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_PERFORMANCE",idCurrent)
+      if (!request) console.log("data error")
+      //  console.log(request)
+      setUserPerformanceData(request)
+    }
+  data()    
+  }, [idCurrent])
+
+
+  if ((!userMainData) || (!userActivityData)
+     || (!userAverageSessionsData) || (!userPerformanceData)) {
+    return null
+  }
+  else{
+    if (userActivityData.sessions){
+      //format UserActivityData.sessions.day
+      for (let i = 0 ; i < userActivityData.sessions.length ; i ++){
+        userActivityData.sessions[i].day = i + 1
+      }
+    
+      if (userAverageSessionsData){
+        //To change the data in days and show the first letter of each day of the week
+        const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
+        WeekDaysFirstLetter.forEach((kind, index) => {
+          userAverageSessionsData.sessions[index].day = kind
+        })
+      }
+      
+      if (userPerformanceData){
+        //To translate categories performance kinds in french
+       const PerformanceKinds = 
+           ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
+          PerformanceKinds.forEach((kind, index) => {
+          userPerformanceData.data[index].kind = kind
+        })
+      console.log(userPerformanceData)
+      }
+    }
   }
 
-
   return ( 
-     <Main>
-      { (UserMainData) && <UserInfo name={UserMainData.firstName} /> } 
+    <Main>
+      { (userMainData) && <UserInfo name={userMainData.firstName} /> } 
       <Container>
+
         <ContainerLeft>
-          {(UserActivityData.sessions) && (<BarChartActivity data={UserActivityData.sessions}/>)}
+         { ((userActivityData.sessions) && (userActivityData.sessions.length > 0)
+         && (userAverageSessionsData) && (userAverageSessionsData.sessions.length > 0)
+         ) ? (
+          <div>
+            <BarChartActivity data={userActivityData.sessions}/>
+            <ContainerLeftChart>
+              <LineChartSessions data={userAverageSessionsData.sessions}/>
+              <RadarChartPerformance data={userPerformanceData}/>
+
+            </ContainerLeftChart>
+            
+          </div>  
+         ) : (<div>chargement en cours......</div>)
+         }
+          {/* {((userActivityData.sessions) && (userActivityData.sessions.length > 0)) && 
+          (<BarChartActivity data={userActivityData.sessions}/>)} */}
+          {/* { ((userAverageSessionsData) && (userAverageSessionsData.sessions.length > 0))  &&
+            <LineChartSessions data={userAverageSessionsData.sessions}/>  }  */}
         </ContainerLeft>
+
         <ContainerRight>
           <AsideKeyData>
             <ContainerKeyData>
               <KeyData
                     icon={caloriesIcon}
-                    info={`${UserMainData.calorieCount}kCal`}
+                    info={`${userMainData.calorieCount}kCal`}
                     text="Calories"
                 />
             </ContainerKeyData>
             <ContainerKeyData>
             <KeyData
                   icon={proteinIcon}
-                  info={`${UserMainData.proteinCount}g`}
+                  info={`${userMainData.proteinCount}g`}
                   text="Proteines"
                 />
             </ContainerKeyData>
             <ContainerKeyData>
               <KeyData
                     icon={carbsIcon}
-                    info={`${UserMainData.carbohydrateCount}g`}
+                    info={`${userMainData.carbohydrateCount}g`}
                     text="Glucides"
                   />
             </ContainerKeyData>
             <ContainerKeyData>
               <KeyData
                     icon={fatIcon}
-                    info={`${UserMainData.lipidCount}g`}
+                    info={`${userMainData.lipidCount}g`}
                     text="Lipides"
                   />
             </ContainerKeyData> 

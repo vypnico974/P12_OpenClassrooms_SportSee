@@ -4,9 +4,8 @@ import styled from 'styled-components'
 
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend }
         from 'recharts'
-import { getData } from '../utils/getData'
 
-
+        
 const ChartTitle = styled.h2`
   font-size: 0.94rem;
   font-weight: 500;
@@ -147,5 +146,5 @@ export default function BarChartActivity({data}) {
     </ContainerBarChart> )
 }
 BarChartActivity.propTypes = {
-    data: PropTypes.arrayOf(getData).isRequired,
+  data: PropTypes.array.isRequired,
 }

@@ -68,17 +68,24 @@ getUserActivity.PropTypes = {
 
 
 /**
- * Get user average session 
+ * Get user average session data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const getUserAverageSessions = async (id) => {
 	try {
-		const res = await axios.get(`${baseURL}user/${id}/average-sessions`)
-		return res.data
+		const reponse = await axios.get(`${baseURL}user/${id}/average-sessions`)
+		return {
+			error:'',
+			sessions: reponse.data.data.sessions
+		}
 	} catch (e) {
 		console.log(e)
+		return {
+			error:'error',
+			sessions: ''
+		}
 	}
 }
 getUserAverageSessions.PropTypes = {
@@ -88,17 +95,26 @@ getUserAverageSessions.PropTypes = {
 
 
 /**
- * Get user performance 
+ * Get user performance data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const getUserPerformance = async (id) => {
 	try {
-		const res = await axios.get(`${baseURL}user/${id}/performance`);
-		return res.data;
+		const reponse = await axios.get(`${baseURL}user/${id}/performance`)
+		return {
+			error:'',
+			kind: reponse.data.data.kind,
+			data: reponse.data.data.data
+		}
 	} catch (e) {
-		console.log(e);
+		console.log(e)
+		return {
+			error:'error',
+			kind: '',
+			data:''
+		}
 	}
 }
 getUserPerformance.PropTypes = {

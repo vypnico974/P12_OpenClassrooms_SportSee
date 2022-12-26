@@ -24,6 +24,7 @@ export const mockUserInfos = async (id) => {
 			lipidCount: reponse.keyData.lipidCount
 		}				
 		} catch (e) {
+		console.log(e)
 		return {
 			error:'error',
 			firstName : '',
@@ -54,6 +55,7 @@ export const mockUserActivity = async (id) => {
 			sessions: reponse.sessions
 		}
 	} catch (e) {
+		console.log(e)
 		return {
 			error:'error',
 			sessions: ''
@@ -66,17 +68,25 @@ mockUserActivity.PropTypes = {
 
 
 /**
- * Mock user average session 
+ * Mock user average session data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const mockUserAverageSessions = async (id) => {
 	try {
-		const res = USER_AVERAGE_SESSIONS.find((el) => el.userId === id)
-		return {data:res}
+		const reponse = USER_AVERAGE_SESSIONS.find((el) => el.userId === id)
+		//console.log(reponse)
+		return {
+			error:'',
+			sessions: reponse.sessions
+		}
 	} catch (e) {
 		console.log(e)
+		return {
+			error:'error',
+			sessions: ''
+		}
 	}
 }
 mockUserAverageSessions.PropTypes = {
@@ -85,17 +95,26 @@ mockUserAverageSessions.PropTypes = {
 
 
 /**
- * Mok user performance 
+ * Mok user performance data
  *
  * @param {number} id User id
  * @returns {object} Response
  */
 export const mockUserPerformance = async (id) => {
 	try {
-		const res = USER_PERFORMANCE.find((el) => el.userId === id)
-		return {data:res}
+		const reponse = USER_PERFORMANCE.find((el) => el.userId === id)
+		return {
+			error:'',
+			kind: reponse.kind,
+			data: reponse.data
+		}
 	} catch (e) {
 		console.log(e)
+		return {
+			error:'error',
+			kind:'',
+			data: ''
+		}
 	}
 }
 mockUserPerformance.PropTypes = {
