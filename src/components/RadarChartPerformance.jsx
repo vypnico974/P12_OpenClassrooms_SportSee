@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { ResponsiveContainer,Radar,RadarChart,PolarGrid,PolarAngleAxis }
+import { ResponsiveContainer,Radar,RadarChart,PolarGrid,PolarAngleAxis}
     from 'recharts'
 
 const ContainerRadarChart = styled.div`
@@ -30,7 +30,7 @@ export default function RadarChartPerformance({data}) {
             cx="50%"
             cy="50%"
             data={data.data}
-            margin={{ top: 0, right: 30, bottom: 0, left: 40 }}
+            margin={{ top: 0, right: 30, bottom: 0, left: 50 }}
             >
             <PolarGrid radialLines={false} />
             <PolarAngleAxis

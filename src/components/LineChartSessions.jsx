@@ -68,11 +68,9 @@ export default function LineChartSessions({data}) {
             tickLine={false}
             axisLine={false}
             tick={{ display: "none" }}
-            domain={["dataMin-30", "dataMax+50"]}
+            domain={["dataMin-10", "dataMax+50"]}
           />
           <Tooltip
-            width={258}
-            height={264}
             itemStyle={{ color: "black", fontSize: 10, fontWeight: 500 }}
             formatter={(value, name, unit) => [value, unit]}
             labelStyle={{ display: "none" }}
@@ -89,15 +87,13 @@ export default function LineChartSessions({data}) {
             offset={20}
           />
           <Line
-            type="natural"
+            type="monotone"
             dataKey="sessionLength"
-            width={258}
             stroke="#fff"
             strokeWidth={1.7}
             dot={false}
             activeDot={{ r: 4 }}
             unit={"min"}
-            name="Durée moyenne des sessions"
           />
         </LineChart>
       </ResponsiveContainer>

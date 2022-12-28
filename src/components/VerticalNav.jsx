@@ -19,8 +19,7 @@ const Nav = styled.div `
     height: 100%;
     background: #020203;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    top:0;
-    left:0;	
+
 `
 const Wrapper = styled.div`
     display: flex;
@@ -28,7 +27,7 @@ const Wrapper = styled.div`
     margin:auto;
     width: 64px;
     position:absolute;
-    top:5%;
+    top:10%;
     left:26px;
     a{
         display: flex;

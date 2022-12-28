@@ -46,9 +46,9 @@ export default function Header() {
             <img src={logo} alt="sportSee" aria-label="logo sportSee"/>
             <Nav>
                 <NavLink to='/'>Accueil</NavLink>
-				<NavLink to='#'>Profil</NavLink>
-				<NavLink to='#'>Réglages</NavLink>
-				<NavLink to='#'>Communauté</NavLink>
+				<NavLink to='/profil'>Profil</NavLink>
+				<NavLink to='/setting'>Réglages</NavLink>
+				<NavLink to='/community'>Communauté</NavLink>
             </Nav>
         </Head>
     )

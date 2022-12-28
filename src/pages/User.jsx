@@ -9,6 +9,7 @@ import KeyData from '../components/KeyData'
 import BarChartActivity from '../components/BarChartActivity'
 import LineChartSessions from '../components/LineChartSessions'
 import RadarChartPerformance from '../components/RadarChartPerformance'
+import RadialBarChartScore from '../components/RadialBarChartScore'
 
 import styled from 'styled-components'
 
@@ -33,11 +34,8 @@ flex-direction: row;
 `
 
 const ContainerLeft = styled.div`
-width: 850px;
+width: 835px;
 margin-top: 77px;
-  @media screen and (max-width: 1300px) {
-    width: 850px;
-  }
 `
 const ContainerLeftChart = styled.div`
 display:flex;
@@ -79,7 +77,6 @@ height:124px;
  * @return {JSX}
  */
 export default function User() {
-
     
   const [userMainData, setUserMainData] = useState([])
   const [userActivityData, setUserActivityData] = useState([])
@@ -88,17 +85,12 @@ export default function User() {
   const { id } = useParams()
   const idCurrent = parseInt(id)
 
-  // console.log(getData("USER_MAIN_DATA",idCurrent))
-  // console.log(getData("USER_ACTIVITY",idCurrent))
- // console.log(getData("USER_AVERAGE_SESSIONS",idCurrent))
- // console.log(getData("USER_PERFORMANCE",idCurrent))  
-  
-  
+
   useEffect(() => {
     const data = async () => {
       const request = await getData("USER_MAIN_DATA",idCurrent)
       if (!request) console.log("data error")
-     // console.log(request)
+    // console.log(request)
      setUserMainData(request)
   }
   data()   
@@ -161,18 +153,18 @@ export default function User() {
           PerformanceKinds.forEach((kind, index) => {
           userPerformanceData.data[index].kind = kind
         })
-      console.log(userPerformanceData)
+      //console.log(userPerformanceData)
       }
     }
   }
-
+  
   return ( 
     <Main>
       { (userMainData) && <UserInfo name={userMainData.firstName} /> } 
       <Container>
 
         <ContainerLeft>
-         { ((userActivityData.sessions) && (userActivityData.sessions.length > 0)
+         { ((userMainData) && (userActivityData.sessions) && (userActivityData.sessions.length > 0)
          && (userAverageSessionsData) && (userAverageSessionsData.sessions.length > 0)
          ) ? (
           <div>
@@ -180,16 +172,12 @@ export default function User() {
             <ContainerLeftChart>
               <LineChartSessions data={userAverageSessionsData.sessions}/>
               <RadarChartPerformance data={userPerformanceData}/>
-
+              <RadialBarChartScore data={userMainData.score}/>
             </ContainerLeftChart>
             
           </div>  
          ) : (<div>chargement en cours......</div>)
          }
-          {/* {((userActivityData.sessions) && (userActivityData.sessions.length > 0)) && 
-          (<BarChartActivity data={userActivityData.sessions}/>)} */}
-          {/* { ((userAverageSessionsData) && (userAverageSessionsData.sessions.length > 0))  &&
-            <LineChartSessions data={userAverageSessionsData.sessions}/>  }  */}
         </ContainerLeft>
 
         <ContainerRight>

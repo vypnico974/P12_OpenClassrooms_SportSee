@@ -17,7 +17,7 @@ export const mockUserInfos = async (id) => {
 		return {
 			error:'',
 			firstName: reponse.userInfos.firstName,
-			score: (reponse.score*100) || (reponse.todayScore*100),
+			score: (reponse.score) || (reponse.todayScore),
 			calorieCount: reponse.keyData.calorieCount,
 			proteinCount: reponse.keyData.proteinCount,
 			carbohydrateCount: reponse.keyData.carbohydrateCount,

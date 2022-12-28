@@ -18,7 +18,7 @@ export const getUserInfos = async (id) => {
 		return  {
 			error:'',
 			firstName: reponse.data.data.userInfos.firstName,
-			score: (reponse.data.data.score*100) || (reponse.data.data.todayScore*100),
+			score: (reponse.data.data.score) || (reponse.data.data.todayScore),
 			calorieCount: reponse.data.data.keyData.calorieCount,
 			proteinCount: reponse.data.data.keyData.proteinCount,
 			carbohydrateCount: reponse.data.data.keyData.carbohydrateCount,
