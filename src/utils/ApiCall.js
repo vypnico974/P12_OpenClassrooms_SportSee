@@ -25,6 +25,7 @@ export const getUserInfos = async (id) => {
 			lipidCount: reponse.data.data.keyData.lipidCount
 		}			
 		} catch (e) {
+			console.log(e)
 		return {
 			error:'error',
 			firstName : '',
@@ -55,6 +56,7 @@ export const getUserActivity = async (id) => {
 			sessions: reponse.data.data.sessions
 		}
 	} catch (e) {
+		console.log(e)
 		return {
 			error:'error',
 			sessions: ''

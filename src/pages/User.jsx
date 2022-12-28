@@ -100,7 +100,7 @@ export default function User() {
     const data = async () => {
       const request = await getData("USER_ACTIVITY",idCurrent)
       if (!request) console.log("data error")
-       // console.log(request)
+       //console.log(request)
         setUserActivityData(request)
     }
   data()    
@@ -120,7 +120,7 @@ export default function User() {
     const data = async () => {
       const request = await getData("USER_PERFORMANCE",idCurrent)
       if (!request) console.log("data error")
-      //  console.log(request)
+     // console.log(request)
       setUserPerformanceData(request)
     }
   data()    
@@ -138,7 +138,7 @@ export default function User() {
         userActivityData.sessions[i].day = i + 1
       }
     
-      if (userAverageSessionsData){
+      if (userAverageSessionsData && (userAverageSessionsData.sessions)){
         //To change the data in days and show the first letter of each day of the week
         const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
         WeekDaysFirstLetter.forEach((kind, index) => {
@@ -146,7 +146,7 @@ export default function User() {
         })
       }
       
-      if (userPerformanceData){
+      if ((userPerformanceData) && (userPerformanceData.data)) {       
         //To translate categories performance kinds in french
        const PerformanceKinds = 
            ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
@@ -160,24 +160,31 @@ export default function User() {
   
   return ( 
     <Main>
-      { (userMainData) && <UserInfo name={userMainData.firstName} /> } 
+      { ((userMainData) && (!userMainData.error)) &&
+         <UserInfo name={userMainData.firstName} /> } 
       <Container>
-
         <ContainerLeft>
-         { ((userMainData) && (userActivityData.sessions) && (userActivityData.sessions.length > 0)
-         && (userAverageSessionsData) && (userAverageSessionsData.sessions.length > 0)
-         ) ? (
           <div>
-            <BarChartActivity data={userActivityData.sessions}/>
+            {((userActivityData.sessions) && (!userActivityData.error)) && 
+             <BarChartActivity data={userActivityData.sessions}/>  } 
+
             <ContainerLeftChart>
-              <LineChartSessions data={userAverageSessionsData.sessions}/>
-              <RadarChartPerformance data={userPerformanceData}/>
-              <RadialBarChartScore data={userMainData.score}/>
-            </ContainerLeftChart>
-            
-          </div>  
-         ) : (<div>chargement en cours......</div>)
-         }
+
+              {((userAverageSessionsData.sessions) && 
+              ((!userAverageSessionsData.error))) && 
+              <LineChartSessions data={userAverageSessionsData.sessions}/> }
+
+              {((userPerformanceData) && 
+              ((!userPerformanceData.error)) && 
+              (userAverageSessionsData.sessions)) && 
+              <RadarChartPerformance data={userPerformanceData}/> }   
+
+              {((userMainData) && 
+              ((!userMainData.error))) && 
+              <RadialBarChartScore data={userMainData.score}/> } 
+
+            </ContainerLeftChart>            
+          </div> 
         </ContainerLeft>
 
         <ContainerRight>

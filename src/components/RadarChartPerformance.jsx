@@ -22,7 +22,9 @@ const ContainerRadarChart = styled.div`
  */
 export default function RadarChartPerformance({data}) {
 
-     //console.log("data RadarChart:", data)
+    if (!data) return null
+    //console.log(typeof(data))
+    // console.log("data RadarChart:", data)
       return(
         <ContainerRadarChart>
           <ResponsiveContainer width="100%" height={263}>
@@ -50,5 +52,5 @@ export default function RadarChartPerformance({data}) {
     )
 }
 RadarChartPerformance.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object,
 }

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend }
         from 'recharts'
 
-        
+
 const ChartTitle = styled.h2`
   font-size: 0.94rem;
   font-weight: 500;
@@ -24,6 +24,8 @@ padding-top:20px;
  * @return {JSX}
  */
 export default function BarChartActivity({data}) {
+
+    if (!data) return null
   
     
      /** the color legend text using formatter
@@ -146,5 +148,5 @@ export default function BarChartActivity({data}) {
     </ContainerBarChart> )
 }
 BarChartActivity.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 }

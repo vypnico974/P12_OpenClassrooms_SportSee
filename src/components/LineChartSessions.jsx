@@ -36,6 +36,8 @@ const Title = styled.h2`
  */
 export default function LineChartSessions({data}) {
 
+    if (!data) return null
+
      // console.log("data LineChart:", data)
       return(
         <ContainerLineChart>
@@ -101,5 +103,5 @@ export default function LineChartSessions({data}) {
     )
 }
 LineChartSessions.propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
 }
