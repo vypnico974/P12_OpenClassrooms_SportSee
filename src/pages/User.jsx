@@ -1,29 +1,31 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router'
-
+import styled from 'styled-components'
+//mock or axios data
 import {getData} from '../utils/getData'
-
+//components
 import UserInfo from '../components/UserInfo'
-import KeyData from '../components/KeyData'
+import KeyData from '../components/keyData'
 import BarChartActivity from '../components/BarChartActivity'
 import LineChartSessions from '../components/LineChartSessions'
 import RadarChartPerformance from '../components/RadarChartPerformance'
 import RadialBarChartScore from '../components/RadialBarChartScore'
-
-import styled from 'styled-components'
-
+//page
+import Error from './Error'
+//pictures
 import caloriesIcon from '../assets/caloriesIcon.svg'
 import proteinIcon from '../assets/proteinIcon.svg'
 import fatIcon from '../assets/fatIcon.svg'
 import carbsIcon from '../assets/carbsIcon.svg'
 
+
+/* user page style  */
 const Main = styled.main`
 margin-left:80px;
 @media screen and (max-width: 1300px) {
   margin-left:10px;
-}
-`
+}`
 
 const Container = styled.div`
 display:flex;
@@ -32,7 +34,6 @@ flex-direction: row;
     flex-direction: column;
   }
 `
-
 const ContainerLeft = styled.div`
 width: 835px;
 margin-top: 77px;
@@ -47,7 +48,6 @@ width: 100px;
     width: 850px;
 }
 `
-
 const AsideKeyData = styled.aside`
 padding:0;
 margin-top:75px;
@@ -72,10 +72,12 @@ height:124px;
 }
 `
 
-
-/** render user page : the dashboard
- * @return {JSX}
- */
+/**
+ * @function User
+ * @export
+ * @description component that render user page : the dashboard
+ * @return {HTMLElement} component generated HTML
+*/
 export default function User() {
     
   const [userMainData, setUserMainData] = useState([])
@@ -90,8 +92,8 @@ export default function User() {
     const data = async () => {
       const request = await getData("USER_MAIN_DATA",idCurrent)
       if (!request) console.log("data error")
-    // console.log(request)
-     setUserMainData(request)
+    //  console.log(request)
+      setUserMainData(request)
   }
   data()   
   }, [idCurrent])
@@ -127,37 +129,36 @@ export default function User() {
   }, [idCurrent])
 
 
-  if ((!userMainData) || (!userActivityData)
-     || (!userAverageSessionsData) || (!userPerformanceData)) {
-    return null
-  }
-  else{
-    if (userActivityData.sessions){
-      //format UserActivityData.sessions.day
-      for (let i = 0 ; i < userActivityData.sessions.length ; i ++){
-        userActivityData.sessions[i].day = i + 1
-      }
-    
-      if (userAverageSessionsData && (userAverageSessionsData.sessions)){
-        //To change the data in days and show the first letter of each day of the week
-        const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
-        WeekDaysFirstLetter.forEach((kind, index) => {
-          userAverageSessionsData.sessions[index].day = kind
-        })
-      }
-      
-      if ((userPerformanceData) && (userPerformanceData.data)) {       
-        //To translate categories performance kinds in french
-       const PerformanceKinds = 
-           ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
-          PerformanceKinds.forEach((kind, index) => {
-          userPerformanceData.data[index].kind = kind
-        })
-      //console.log(userPerformanceData)
-      }
+  if (userActivityData.sessions){
+    //format UserActivityData.sessions.day
+    for (let i = 0 ; i < userActivityData.sessions.length ; i ++){
+      userActivityData.sessions[i].day = i + 1
     }
   }
-  
+
+  if (userAverageSessionsData && (userAverageSessionsData.sessions)){
+    //To change the data in days and show the first letter of each day of the week
+    const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
+    WeekDaysFirstLetter.forEach((kind, index) => {
+      userAverageSessionsData.sessions[index].day = kind
+    })
+  }
+    
+  if ((userPerformanceData) && (userPerformanceData.data)) {       
+    //To translate categories performance kinds in french
+    const PerformanceKinds = 
+        ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
+    PerformanceKinds.forEach((kind, index) => {
+      userPerformanceData.data[index].kind = kind
+    })
+  }    
+
+  // if connection error, render the error page
+  if ((userMainData.error) || (userActivityData.error) ||
+    (userAverageSessionsData.error) || (userPerformanceData.error) ){
+    return <Error />    
+  }
+      
   return ( 
     <Main>
       { ((userMainData) && (!userMainData.error)) &&
@@ -188,38 +189,43 @@ export default function User() {
         </ContainerLeft>
 
         <ContainerRight>
-          <AsideKeyData>
-            <ContainerKeyData>
-              <KeyData
-                    icon={caloriesIcon}
-                    info={`${userMainData.calorieCount}kCal`}
-                    text="Calories"
-                />
-            </ContainerKeyData>
-            <ContainerKeyData>
-            <KeyData
+          
+          {(userMainData.calorieCount !== undefined) &&
+          (
+          <div>
+            <AsideKeyData>
+              <ContainerKeyData>              
+                <KeyData
+                      icon={caloriesIcon}
+                      info={`${userMainData.calorieCount}kCal`}
+                      text="Calories"
+                  />
+              </ContainerKeyData>
+              <ContainerKeyData>
+                <KeyData
                   icon={proteinIcon}
                   info={`${userMainData.proteinCount}g`}
                   text="Proteines"
                 />
-            </ContainerKeyData>
-            <ContainerKeyData>
+              </ContainerKeyData>
+              <ContainerKeyData>
               <KeyData
-                    icon={carbsIcon}
-                    info={`${userMainData.carbohydrateCount}g`}
-                    text="Glucides"
-                  />
-            </ContainerKeyData>
-            <ContainerKeyData>
-              <KeyData
-                    icon={fatIcon}
-                    info={`${userMainData.lipidCount}g`}
-                    text="Lipides"
-                  />
-            </ContainerKeyData> 
-          </AsideKeyData>
+                icon={carbsIcon}
+                info={`${userMainData.carbohydrateCount}g`}
+                text="Glucides"
+              />
+              </ContainerKeyData>
+              <ContainerKeyData>
+                <KeyData
+                  icon={fatIcon}
+                  info={`${userMainData.lipidCount}g`}
+                  text="Lipides"
+                />
+              </ContainerKeyData>
+            </AsideKeyData>
+          </div>)}     
         </ContainerRight>
-    </Container>
-  </Main>
+      </Container>
+    </Main>
   )
 }

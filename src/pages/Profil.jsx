@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
+/* profil page style  */
 const Container = styled.div`
 width:80%;
 margin:30px;
 min-height: 470px;
 `
 /**
- * @component Profil
- * @description A sample profil page component.
- */
+ * @function Profil
+ * @export
+ * @description a sample profil page component
+ * @return {HTMLElement} component generated HTML
+*/
 export default function Profil(){
 
     return(
@@ -56,6 +59,6 @@ export default function Profil(){
             quam vulputate dignissim suspendisse in est ante in nibh. Et tortor
             at risus viverra adipiscing at. Ut aliquam purus sit amet luctus.
             <br/><br/><br/>    
-         </Container>       
+        </Container>       
     )
 }

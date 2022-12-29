@@ -1,16 +1,16 @@
 import axios from 'axios'
 import PropTypes from 'prop-types'
-
-
+// Api URL
 const baseURL = 'http://localhost:3000/'
 
-
 /**
- * Get user infos data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function getUserInfos
+ * @export
+ * @async
+ * @description component that axios data and return response user infos data
+ * @param {number} id user id
+ * @returns {object} response user infos data
+*/
 export const getUserInfos = async (id) => {
 	try {
 		const reponse = await axios.get(`${baseURL}user/${id}`)
@@ -43,11 +43,13 @@ getUserInfos.PropTypes = {
 
 
 /**
- * Get user activity data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function getUserActivity
+ * @export
+ * @async
+ * @description component that axios data and return response user activity data
+ * @param {number} id user id
+ * @returns {object} response user activity data
+*/
 export const getUserActivity = async (id) => {
 	try {
 		const reponse = await axios.get(`${baseURL}user/${id}/activity`)
@@ -68,13 +70,14 @@ getUserActivity.PropTypes = {
 }
 
 
-
 /**
- * Get user average session data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function getUserActivity
+ * @export
+ * @async
+ * @description component that axios data and return response user average session data
+ * @param {number} id user id
+ * @returns {object} response user average session data
+*/
 export const getUserAverageSessions = async (id) => {
 	try {
 		const reponse = await axios.get(`${baseURL}user/${id}/average-sessions`)
@@ -95,13 +98,14 @@ getUserAverageSessions.PropTypes = {
 }
 
 
-
 /**
- * Get user performance data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function getUserActivity
+ * @export
+ * @async
+ * @description component that axios data and return response user performance data
+ * @param {number} id - user id
+ * @returns {object} response user performance data
+*/
 export const getUserPerformance = async (id) => {
 	try {
 		const reponse = await axios.get(`${baseURL}user/${id}/performance`)

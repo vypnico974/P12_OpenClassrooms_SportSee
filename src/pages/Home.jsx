@@ -1,10 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-//import {getUserInfos}    from '../utils/ApiCall'
-//import {mockUserInfos }  from '../utils/mocksCall'
 
-
+/* home page style  */
 const Main = styled.main`
 margin-left: 100px;
 height:33rem;
@@ -19,29 +17,24 @@ height:33rem;
     color:red;
   }
 `
-
 const Title = styled.h1` 
 margin: 1em 0em;
 `
- 
-/** render home page
- * @return {JSX}
- */
+
+/**
+ * @function User
+ * @export
+ * @description render home page component who appears for the developement : choose between two users to simulate the app
+ * @return {HTMLElement} component generated HTML
+*/
 export default function Home() {
-    //console.log(getUserInfos(18))
-    // console.log(getUserActivity(12))
-    // console.log(getUserAverageSessions(12))
-    // console.log(getUserPerformance(12))
-    //console.log(mockUserInfos(18))
-    // console.log(mockUserActivity(12))
-    // console.log(mockUserAverageSessions(12))
-    // console.log(mockUserPerformance(12))   
-    return ( 
-        <Main>
-            <Title>Veuillez sélectionner un utilisateur :</Title>
-            <NavLink to="user/12"> 👨  L'utilisateur nr 12</NavLink>
-            <NavLink to="user/18"> 👩  L'utilisateur nr 18</NavLink>
-        </Main>
-     )
+  
+  return ( 
+    <Main>
+      <Title>Veuillez sélectionner un utilisateur :</Title>
+      <NavLink to="user/12"> 👨  L'utilisateur nr 12</NavLink>
+      <NavLink to="user/18"> 👩  L'utilisateur nr 18</NavLink>
+    </Main>
+  )
 }
 

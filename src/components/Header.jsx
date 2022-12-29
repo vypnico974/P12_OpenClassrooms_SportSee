@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from "react-router-dom"
+
+//picture
 import logo from '../assets/sportSee_logo.svg'
 
 
+/* Header style  */
 const Head = styled.header ` 
     background: #020203;
     position:relative;
@@ -37,9 +40,12 @@ const Nav = styled.nav `
 	}
 `
 
-/** render header component with navlink
- * @return {JSX}
- */
+/**
+ * @function RadialBarChartScore
+ * @export
+ * @description component that render header with navLink
+ * @return {HTMLElement} component generated HTML
+*/
 export default function Header() {
     return (  
         <Head>            

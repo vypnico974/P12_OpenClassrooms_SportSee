@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+// recharts components
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend }
         from 'recharts'
 
-
+/* bar chart style  */
 const ChartTitle = styled.h2`
   font-size: 0.94rem;
   font-weight: 500;
@@ -18,19 +18,25 @@ border-radius: 5px;
 padding-top:20px;
 `
 
-
-/** render Bart Chart width User Activity Data(sessions)
- * @param  {Array} user activity session data
- * @return {JSX}
- */
+/**
+ * @function BarChartActivity
+ * @export
+ * @description component that render bart chart with user activity data(sessions)
+ * @param  {Object} data - user activity data(sessions)
+ * @param {number} data.day - day number
+ * @param {number} data.calories - calories number
+ * @param {number} data.kilogramm - kilogramm number
+ * @return {HTMLElement} component generated HTML
+*/
 export default function BarChartActivity({data}) {
 
     if (!data) return null
-  
-    
+    // console.log(typeof(data)) 
+    // console.log("data BarChart:", data)   
+
      /** the color legend text using formatter
      * @param  {string} value
-     * @return {JSX}
+     * @return {HTMLElement} component generated HTML
      */
     const renderColorfulLegendText = (value) => {
         return <span style={{ color: "#74798C" }}>{value}</span>

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+// recharts components
 import { ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip }
     from 'recharts'
 
-
+/* Line chart style  */
 const ContainerLineChart = styled.div`
   background: #FF0000;
   width:258px;
@@ -29,16 +29,20 @@ const Title = styled.h2`
   left: 30px;
 `
 
-
-/** render Line Chart width User Activity Data(sessions)
- * @param  {Array} user average session data
- * @return {JSX}
- */
+/**
+ * @function LineChartSessions
+ * @export
+ * @description component that render line chart with user activity data(sessions)
+ * @param  {Object} data - average session data
+ * @param {string} data.day - the first letter of the day of the week
+ * @param {value} data.sessionLength - session duration
+ * @return {HTMLElement} component generated HTML
+*/
 export default function LineChartSessions({data}) {
 
     if (!data) return null
-
-     // console.log("data LineChart:", data)
+    //console.log(typeof(data)) 
+    //console.log("data LineChart:", data)
       return(
         <ContainerLineChart>
           <ChartTitle>
@@ -74,6 +78,7 @@ export default function LineChartSessions({data}) {
           />
           <Tooltip
             itemStyle={{ color: "black", fontSize: 10, fontWeight: 500 }}
+            // to display the unit and its value
             formatter={(value, name, unit) => [value, unit]}
             labelStyle={{ display: "none" }}
             contentStyle={{

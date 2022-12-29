@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+// recharts components
 import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts'
 
-const ContainerPieChart = styled.div`
+/* RadialBarChart component style  */
+const ContainerRadialBarChart = styled.div`
 position:relative;
 width:258px;
 height:263px;
@@ -50,13 +51,17 @@ const Score = styled.span`
     font-size: 26px;
 `
 
-
-/** render radial bar chart width score today 
- * @param  {number} score score today 
- * @return {JSX}
- */
+/**
+ * @function RadialBarChartScore
+ * @export
+ * @description render radial bar chart with score today
+ * @param  {number} score - score today 
+ * @return {HTMLElement} component generated HTML
+*/
 export default function RadialBarChartScore({data}) {
 
+   // console.log(typeof(data))
+    // console.log(data)
     if (!data) return null
     
     const score =  [
@@ -70,8 +75,7 @@ export default function RadialBarChartScore({data}) {
         }
       ]
       return(
-        <ContainerPieChart>
-             {/* {console.log("score PieChart:", data)} */}
+        <ContainerRadialBarChart>
             <Title>Score</Title>
             <ResponsiveContainer width="100%" height={183}>
                 <RadialBarChart barSize={15} data={score} endAngle={450} height={250} innerRadius="100%" startAngle={90} width={250}>
@@ -82,7 +86,7 @@ export default function RadialBarChartScore({data}) {
                 <Score>{score[0].value }%<br/></Score>
                 de votre<br/> objectif
             </Text>
-        </ContainerPieChart>
+        </ContainerRadialBarChart>
     )
 }
 RadialBarChartScore.propTypes = {

@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
+/* setting page style  */
 const Container = styled.div`
 width:80%;
 margin:30px;
 min-height: 470px;
 `
+
 /**
- * @component Community
- * @description A sample community page component.
- */
+ * @function Community
+ * @export
+ * @description a sample community page component
+ * @return {HTMLElement} component generated HTML
+*/
 export default function Community(){
 
     return(

@@ -1,11 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+//pictures
 import yogaIcon from '../assets/yoga.svg'
 import bikeIcon from '../assets/bike.svg'
 import swimIcon from '../assets/swim.svg'
 import bodybuildingIcon from '../assets/bodybuilding.svg'
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
 
+/* VerticalNav component style  */
 const Container = styled.div `
     overflow: hidden;
     position:relative;
@@ -52,9 +54,12 @@ const NavText = styled.p `
     margin:auto;
 `
 
-/** rental vertical navigation component with navlink 
- * @return {JSX}
- */
+/**
+ * @function VerticalNav
+ * @export
+ * @description rental vertical navigation component with navlink 
+ * @return {HTMLElement} component generated HTML
+*/
 export default function VerticalNav() {
     return ( 
         <Container>
@@ -68,6 +73,6 @@ export default function VerticalNav() {
                 <NavText>Copiryght, SportSee 2020</NavText>
             </Nav>
         </Container>
-     )
+    )
 }
 

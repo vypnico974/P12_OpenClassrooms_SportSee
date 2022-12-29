@@ -24,6 +24,7 @@ const Container = styled.div `
 
 /**
  * @function App
+ * @export
  * @description component that block structure and declaration of the differents
  *  routes for this website
  * @return {HTMLElement} component generated HTML

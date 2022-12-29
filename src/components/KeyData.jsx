@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
-
+/* key data style  */
 const Container = styled.div`
     display:flex;
     margin:auto;
@@ -32,13 +32,18 @@ const InfosText = styled.p`
     line-height: 24px;
     color: #74798C;
 `
-/** render icon with User Main Data(keyData)
- * @param  {string} icon
- * @param  {string} info
- * @param  {string} text
- * @return {JSX}
- */
-export default function KeyData({icon,info,text}) {
+
+/**
+ * @function Keydata
+ * @export
+ * @description component that render icon with User Main Data(keyData)
+ * @param  {string} icon - icon path
+ * @param  {string} info - information
+ * @param  {string} text - text
+ * @return {HTMLElement} component generated HTML
+*/
+export default function Keydata({icon,info,text}) {
+
     return (  
     <Container>
         <img src={icon} alt="calories icon"/>
@@ -49,8 +54,8 @@ export default function KeyData({icon,info,text}) {
     </Container> )
 }
 
-KeyData.propTypes = {
-  icon: PropTypes.any,
+Keydata.propTypes = {
+  icon: PropTypes.string,
   info: PropTypes.string,
   text: PropTypes.string,
 }

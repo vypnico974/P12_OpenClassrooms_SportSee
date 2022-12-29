@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
+/* setting page style  */
 const Container = styled.div`
 width:80%;
 margin:30px;
 min-height: 470px;
 `
+
 /**
- * @component Setting
- * @description A sample setting page component.
- */
+ * @function Setting
+ * @export
+ * @description a sample setting page component
+ * @return {HTMLElement} component generated HTML
+*/
 export default function Setting(){
 
     return(

@@ -1,15 +1,16 @@
+//data mock
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE}
     from '../__mocks__/mocksData'
 import PropTypes from 'prop-types'
 
-
-
 /**
- * Mock user infos data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function mockUserInfos
+ * @export
+ * @async
+ * @description component that mock user infos data
+ * @param {number} id - user id
+ * @returns {object} response user infos data
+*/
 export const mockUserInfos = async (id) => {
 	try {
         const reponse = USER_MAIN_DATA.find((el) => el.id === id)
@@ -37,16 +38,18 @@ export const mockUserInfos = async (id) => {
 	}
 }
 mockUserInfos.PropTypes = {
-    id : PropTypes.number.isRequired
+    id : PropTypes.number.isRequired,
 }
 
 
 /**
- * Mock user activity data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function mockUserActivity
+ * @export
+ * @async
+ * @description component that mock user activity data
+   @param {number} id - user id
+ * @returns {object} response user activity data
+*/
 export const mockUserActivity = async (id) => {
 	try {
 		const reponse = USER_ACTIVITY.find((el) => el.userId === id)
@@ -68,11 +71,13 @@ mockUserActivity.PropTypes = {
 
 
 /**
- * Mock user average session data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function mockUserAverageSessions
+ * @export
+ * @async
+ * @description component that mock user average sessions data
+ * @param {number} id - user id
+ * @returns {object} response user average sessions data
+*/
 export const mockUserAverageSessions = async (id) => {
 	try {
 		const reponse = USER_AVERAGE_SESSIONS.find((el) => el.userId === id)
@@ -95,11 +100,13 @@ mockUserAverageSessions.PropTypes = {
 
 
 /**
- * Mok user performance data
- *
- * @param {number} id User id
- * @returns {object} Response
- */
+ * @function mockUserPerformance
+ * @export
+ * @async
+ * @description component that mock user performance data
+ *  @param {number} id - user id
+ * @returns {object} response user performance data
+*/
 export const mockUserPerformance = async (id) => {
 	try {
 		const reponse = USER_PERFORMANCE.find((el) => el.userId === id)
