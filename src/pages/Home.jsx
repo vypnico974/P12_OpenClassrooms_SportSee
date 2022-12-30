@@ -24,7 +24,8 @@ margin: 1em 0em;
 /**
  * @function User
  * @export
- * @description render home page component who appears for the developement : choose between two users to simulate the app
+ * @description render home page component who appears for the developement :
+ *  choose between two users to simulate the app
  * @return {HTMLElement} component generated HTML
 */
 export default function Home() {

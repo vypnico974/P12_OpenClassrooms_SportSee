@@ -5,6 +5,7 @@
 ## Prerequisites
 
 - [NodeJS ( >= version 18.7.0)](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/getting-started/install)
 
 ## Dependencies
 
@@ -19,14 +20,14 @@
 
 ## Installation
 
-# 1- Install and launch the BackEnd
+### 1- Install and launch the BackEnd
 
 - This project uses an API available [here](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard).
 - There are 2 users available and their URL are :
   - `http://localhost:3000/user/12`
   - `http://localhost:3000/user/18`
 
-# 2- Install and launch the FrontEnd
+### 2- Install and launch the FrontEnd
 
 - Clone this repository :
     git clone https://github.com/vypnico974/P12_OpenClassrooms_SportSee.git

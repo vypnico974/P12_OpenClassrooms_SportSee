@@ -16,7 +16,6 @@ background: #FBFBFB;
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
 border-radius: 5px;
 `  
-
 const Title = styled.h2`
     position relative;
     margin-left:120px;
@@ -27,7 +26,6 @@ const Title = styled.h2`
     color: #20253A;
     font-weight: 700;
 `
-
 const Text = styled.p`
 background-color: #ffffff;
 border-radius: 50%;
@@ -44,7 +42,6 @@ height: 145px;
 top: 50px;
 left: 57px;
 `
-
 const Score = styled.span`
     color: rgba(0, 0, 0, 0.8);
     font-weight: 700;
@@ -64,6 +61,7 @@ export default function RadialBarChartScore({data}) {
     // console.log(data)
     if (!data) return null
     
+    /* to define colored circle part and transparent circle part  */
     const score =  [
         {
           "fill": "#FF0000",

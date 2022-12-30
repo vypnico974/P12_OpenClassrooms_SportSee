@@ -7,12 +7,12 @@ import bikeIcon from '../assets/bike.svg'
 import swimIcon from '../assets/swim.svg'
 import bodybuildingIcon from '../assets/bodybuilding.svg'
 
+
 /* VerticalNav component style  */
 const Container = styled.div `
     overflow: hidden;
     position:relative;
 `
-
 const Nav = styled.div `
     display:flex;
     flex-direction:column;
@@ -21,7 +21,6 @@ const Nav = styled.div `
     height: 100%;
     background: #020203;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 `
 const Wrapper = styled.div`
     display: flex;
@@ -38,9 +37,7 @@ const Wrapper = styled.div`
         margin-bottom: 20px;
         cursor:default;
     }
-    
 `
-
 const NavText = styled.p ` 
     transform: rotate(270deg);
     position: absolute;
@@ -53,7 +50,6 @@ const NavText = styled.p `
     color:white;
     margin:auto;
 `
-
 /**
  * @function VerticalNav
  * @export

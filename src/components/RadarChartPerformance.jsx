@@ -53,7 +53,7 @@ export default function RadarChartPerformance({data}) {
           dataKey="value"
           stroke="rgba(255, 1, 1, 0.7)"
           fill="rgba(255, 1, 1, 0.7)"
-          fillOpacity={0.7}
+          fillOpacity={0.9}
         />
         </RadarChart>
       </ResponsiveContainer>

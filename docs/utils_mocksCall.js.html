@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/mocksCall.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/mocksCall.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//data mock
+import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE}
+    from '../__mocks__/mocksData'
+import PropTypes from 'prop-types'
+
+/**
+ * @function mockUserInfos
+ * @export
+ * @async
+ * @description component that mock user infos data
+ * @param {number} id - user id
+ * @returns {object} response user infos data
+*/
+export const mockUserInfos = async (id) => {
+	try {
+        const reponse = USER_MAIN_DATA.find((el) => el.id === id)
+		//console.log(reponse)
+		return {
+			error:'',
+			firstName: reponse.userInfos.firstName,
+			score: (reponse.score) || (reponse.todayScore),
+			calorieCount: reponse.keyData.calorieCount,
+			proteinCount: reponse.keyData.proteinCount,
+			carbohydrateCount: reponse.keyData.carbohydrateCount,
+			lipidCount: reponse.keyData.lipidCount
+		}				
+		} catch (e) {
+		console.log(e)
+		return {
+			error:'error',
+			firstName : '',
+			score: '',
+			calorieCount: '',
+			proteinCount: '',
+			carbohydrateCount: '',
+			lipidCount:''
+		}
+	}
+}
+mockUserInfos.PropTypes = {
+    id : PropTypes.number.isRequired,
+}
+
+
+/**
+ * @function mockUserActivity
+ * @export
+ * @async
+ * @description component that mock user activity data
+   @param {number} id - user id
+ * @returns {object} response user activity data
+*/
+export const mockUserActivity = async (id) => {
+	try {
+		const reponse = USER_ACTIVITY.find((el) => el.userId === id)
+		return {
+			error:'',
+			sessions: reponse.sessions
+		}
+	} catch (e) {
+		console.log(e)
+		return {
+			error:'error',
+			sessions: ''
+		}
+	}
+}
+mockUserActivity.PropTypes = {
+    id : PropTypes.number.isRequired
+}
+
+
+/**
+ * @function mockUserAverageSessions
+ * @export
+ * @async
+ * @description component that mock user average sessions data
+ * @param {number} id - user id
+ * @returns {object} response user average sessions data
+*/
+export const mockUserAverageSessions = async (id) => {
+	try {
+		const reponse = USER_AVERAGE_SESSIONS.find((el) => el.userId === id)
+		//console.log(reponse)
+		return {
+			error:'',
+			sessions: reponse.sessions
+		}
+	} catch (e) {
+		console.log(e)
+		return {
+			error:'error',
+			sessions: ''
+		}
+	}
+}
+mockUserAverageSessions.PropTypes = {
+    id : PropTypes.number.isRequired
+}
+
+
+/**
+ * @function mockUserPerformance
+ * @export
+ * @async
+ * @description component that mock user performance data
+ *  @param {number} id - user id
+ * @returns {object} response user performance data
+*/
+export const mockUserPerformance = async (id) => {
+	try {
+		const reponse = USER_PERFORMANCE.find((el) => el.userId === id)
+		return {
+			error:'',
+			kind: reponse.kind,
+			data: reponse.data
+		}
+	} catch (e) {
+		console.log(e)
+		return {
+			error:'error',
+			kind:'',
+			data: ''
+		}
+	}
+}
+mockUserPerformance.PropTypes = {
+    id : PropTypes.number.isRequired
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 09:26:02 GMT+0400 (heure normale de Maurice)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

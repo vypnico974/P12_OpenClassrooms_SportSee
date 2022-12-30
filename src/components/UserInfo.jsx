@@ -11,7 +11,6 @@ const Head = styled.header`
     margin-bottom:20px;
   }
 `
-
 const Name = styled.span`
   color: #FF0101;
 `

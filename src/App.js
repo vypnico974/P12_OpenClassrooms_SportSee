@@ -1,11 +1,9 @@
 import * as React from "react"
 import { Routes, Route } from "react-router-dom"
 import styled from 'styled-components'
-
 //components
 import Header from './components/Header'
 import VerticalNav from './components/VerticalNav'
-
 //pages
 import Home from "./pages/Home"
 import Error from "./pages/Error"
@@ -13,11 +11,11 @@ import User from "./pages/User"
 import Community from "./pages/Community"
 import Setting from "./pages/Setting"
 import Profil from "./pages/Profil"
-
 //CSS
 import './styles/normalize.css'
 import './styles/global.css'
 
+/* container style  */
 const Container = styled.div `
   display: -webkit-box;
 `

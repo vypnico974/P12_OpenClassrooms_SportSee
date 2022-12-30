@@ -12,7 +12,6 @@ const ContainerLineChart = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
   margin-top:30px;
-  height:100%;
 `    
 const ChartTitle = styled.div`
   color: #FFFFFF;
@@ -90,7 +89,7 @@ export default function LineChartSessions({data}) {
             alignItems: "center",
             justifyContent: "center",
             }}
-            cursor={{ stroke: "black", strokeOpacity: 0.3, strokeWidth: 40 }}
+            cursor={{ stroke: "black", strokeOpacity: 0.2, strokeWidth: 40 }}
             offset={20}
           />
           <Line

@@ -7,8 +7,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     display:flex;
     margin:auto;
-`
-    
+`    
 const Infos = styled.div`
     display:flex;
     flex-direction:column;
@@ -17,7 +16,6 @@ const Infos = styled.div`
         margin-left:5px;
     }
 `
-
 const InfosData = styled.p`
     font-weight: bold;
     font-size: 20px;
@@ -25,7 +23,6 @@ const InfosData = styled.p`
     color: #282D30;
     margin-bottom:2px;
 `
-
 const InfosText = styled.p`
     font-weight: 500;
     font-size: 14px;
