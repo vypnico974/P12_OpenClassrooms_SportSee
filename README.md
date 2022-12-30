@@ -33,19 +33,16 @@
     git clone https://github.com/vypnico974/P12_OpenClassrooms_SportSee.git
 - Package installations after cloning, npm or yarn :
     - with npm :
-    npm install
+    npm i (or npm install)
     - with yarn :
-    yarn install
+    yarn (or yarn install)
 - Run the FrontEnd :  
     - with npm :
     npm start
     - with yarn :
     yarn start
 - There are 2 users available and their URL are :
-  - http://localhost:3001/user/12
-  - http://localhost:3001/user/18
+  - `http://localhost:3001/user/12`
+  - `http://localhost:3001/user/18`
 
-
-
-        
 

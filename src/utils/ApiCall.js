@@ -1,6 +1,11 @@
 import axios from 'axios'
 import PropTypes from 'prop-types'
-// Api URL
+
+/** 
+ * @constant baseURL
+ * @type {string} Api URL
+ * @default 
+*/
 const baseURL = 'http://localhost:3000/'
 
 /**

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: App.js</title>
+    <title>JSDoc: Source: components/Spinner/Spinner.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: App.js</h1>
+    <h1 class="page-title">Source: components/Spinner/Spinner.jsx</h1>
 
     
 
@@ -26,55 +26,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import * as React from "react"
-import { Routes, Route } from "react-router-dom"
-import styled from 'styled-components'
-//components
-import Header from './components/Header'
-import VerticalNav from './components/VerticalNav'
-//pages
-import Home from "./pages/Home"
-import Error from "./pages/Error"
-import User from "./pages/User"
-import Community from "./pages/Community"
-import Setting from "./pages/Setting"
-import Profil from "./pages/Profil"
-//CSS
-import './styles/normalize.css'
-import './styles/global.css'
-
-/* container style  */
-const Container = styled.div `
-  display: -webkit-box;
-`
+            <pre class="prettyprint source linenums"><code>/* react  */
+import React from "react"
+import PropTypes from 'prop-types'
+/* css  */
+import styles from './spinner.module.css'
 
 /**
- * @function App
+ * @function Spinner
  * @export
- * @description component that block structure and declaration of the differents
- *  routes for this website
+ * @description component that render load spinner
+ * @param  {string} title - style class
+ * @param  {string} typeLoader - loader type
+ * @param  {string} formatting - formatting
  * @return {HTMLElement} component generated HTML
- */
-export default function App() {
+*/
+export default function Spinner({title, typeLoader, formatting}) {
+  /*  example formatting = "spinnerMedium" */
   return (
-  &lt;>
-  &lt;Header />
-    &lt;Container> 
-      &lt;VerticalNav />
-      &lt;Routes>
-        &lt;Route exact path="/" element={&lt;Home />} />
-        &lt;Route path="/user/:id" element={&lt;User />} />
-        &lt;Route path="/community" element={&lt;Community />} />
-        &lt;Route path="/setting" element={&lt;Setting />} />
-        &lt;Route path="/profil" element={&lt;Profil />} />
-        &lt;Route path="*" element={&lt;Error />} />
-      &lt;/Routes>
-    &lt;/Container>  
-  &lt;/>
+    &lt;div className={`${styles.container__spinner} ${styles[formatting]}`}>
+        &lt;h1>{title}&lt;/h1>
+        &lt;div className={`${styles.loader} ${styles[formatting]}`} id={styles[typeLoader]}>&lt;/div>  
+    &lt;/div>
   )
-}
-
-</code></pre>
+}   
+Spinner.propTypes = {
+  title: PropTypes.string,
+  typeLoader: PropTypes.string,
+  formatting: PropTypes.string,
+}</code></pre>
         </article>
     </section>
 

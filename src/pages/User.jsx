@@ -11,6 +11,7 @@ import BarChartActivity from '../components/BarChartActivity'
 import LineChartSessions from '../components/LineChartSessions'
 import RadarChartPerformance from '../components/RadarChartPerformance'
 import RadialBarChartScore from '../components/RadialBarChartScore'
+import Spinner from '../components/Spinner/Spinner'
 //page
 import Error from './Error'
 //pictures
@@ -82,50 +83,89 @@ export default function User() {
   const [userActivityData, setUserActivityData] = useState([])
   const [userAverageSessionsData, setUserAverageSessionsData] = useState([])
   const [userPerformanceData, setUserPerformanceData] = useState([])
+  const [isLoadingMain, setIsLoadingMain] = useState(false)
+  const [isLoadingActivity, setIsLoadingActivity] = useState(false)
+  const [isLoadingAverage, setIsLoadingAverage] = useState(false)
+  const [isLoadingPerformance, setIsLoadingPerformance] = useState(false)  
   const { id } = useParams()
   const idCurrent = parseInt(id)
 
 
   useEffect(() => {
+    setIsLoadingMain(true) //load start
     const data = async () => {
-      const request = await getData("USER_MAIN_DATA",idCurrent)
-      if (!request) console.log("data error")
-    //  console.log(request)
-      setUserMainData(request)
-  }
+      try{
+        const request = await getData("USER_MAIN_DATA",idCurrent)
+        setUserMainData(request)
+      }
+      catch{
+        console.log("data error")
+      }
+      finally{
+        setIsLoadingMain(false) //load end
+      }
+    }
   data()   
   }, [idCurrent])
 
   useEffect(() => {
+    setIsLoadingActivity(true) //load start
     const data = async () => {
-      const request = await getData("USER_ACTIVITY",idCurrent)
-      if (!request) console.log("data error")
-       //console.log(request)
+      try{
+        const request = await getData("USER_ACTIVITY",idCurrent)
         setUserActivityData(request)
+      }
+      catch{
+        console.log("data error")
+      }
+      finally{
+        setIsLoadingActivity(false) //load end
+      }
+      
     }
   data()    
-  }, [idCurrent])
+  }, [idCurrent])  
 
   useEffect(() => {
+    setIsLoadingAverage(true) //load start
     const data = async () => {
-      const request = await getData("USER_AVERAGE_SESSIONS",idCurrent)
-      if (!request) console.log("data error")
-      //  console.log(request)
+      try{
+        const request = await getData("USER_AVERAGE_SESSIONS",idCurrent)
         setUserAverageSessionsData(request)
+      }
+      catch{
+        console.log("data error")
+      }
+      finally{
+        setIsLoadingAverage(false) //load end
+      }        
     }
   data()    
   }, [idCurrent])
 
   useEffect(() => {
+    setIsLoadingPerformance(true) //load start
     const data = async () => {
-      const request = await getData("USER_PERFORMANCE",idCurrent)
-      if (!request) console.log("data error")
-     // console.log(request)
-      setUserPerformanceData(request)
+      try{
+        const request = await getData("USER_PERFORMANCE",idCurrent)
+        setUserPerformanceData(request)
+      }
+      catch{
+        console.log("data error")
+      }
+      finally{
+        setIsLoadingPerformance(false) //load end
+      }      
     }
   data()    
   }, [idCurrent])
 
+
+  // if data load, render spinner(loading)
+  if ((isLoadingActivity) || (isLoadingMain) ||
+  (isLoadingAverage) || (isLoadingPerformance) ) {
+    return <Spinner title="" typeLoader="loader-1" formatting="spinnerMedium"/>
+  }
 
   if (userActivityData.sessions){
     //format UserActivityData.sessions.day
