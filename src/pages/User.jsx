@@ -201,7 +201,7 @@ const PerformanceKinds =
     })
   }
     
-  //format replace kind number to string(entitled)
+  //format replace kind number to string(entitled) 
   if ((userPerformanceData) && (userPerformanceData.data)) {       
     PerformanceKinds.forEach((kind, index) => {
       userPerformanceData.data[index].kind = kind
