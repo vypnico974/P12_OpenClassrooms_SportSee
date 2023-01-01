@@ -25,7 +25,6 @@ const baseURL = 'http://localhost:3000/'
 export const getUserInfos = async (id) => {
 	try {
 		const reponse = await axios.get(`${baseURL}user/${id}`)
-		//console.log(reponse)
 		return  {
 			error:'',
 			firstName: reponse.data.data.userInfos.firstName,

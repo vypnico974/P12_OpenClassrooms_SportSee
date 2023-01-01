@@ -194,67 +194,69 @@ const PerformanceKinds =
     }
   }
 
+  //format replace day value number to string(WeekDaysFirstLetter)
   if (userAverageSessionsData && (userAverageSessionsData.sessions)){
     WeekDaysFirstLetter.forEach((kind, index) => {
       userAverageSessionsData.sessions[index].day = kind
     })
   }
     
+  //format replace kind number to string(entitled)
   if ((userPerformanceData) && (userPerformanceData.data)) {       
     PerformanceKinds.forEach((kind, index) => {
       userPerformanceData.data[index].kind = kind
-    })
+  })
 
-    performanceData = [
-      {
-          value: 0,
-          kind: "Intensité"
-      },
-      {
-        value: 0,
-        kind: "Vitesse"
-      },
-      {
-        value: 0,
-        kind: "Force"
-      },
-      {
-        value: 0,
-        kind: "Endurance"
-      },
-      {
-        value: 0,
-        kind: "Energie"
-      },
-      {
-        value: 0,
-        kind: "Cardio"
-      },  
-      ]
+  performanceData = [
+    {
+      value: 0,
+      kind: "Intensité"
+    },
+    {
+      value: 0,
+      kind: "Vitesse"
+    },
+    {
+      value: 0,
+      kind: "Force"
+    },
+    {
+      value: 0,
+      kind: "Endurance"
+    },
+    {
+      value: 0,
+      kind: "Energie"
+    },
+    {
+      value: 0,
+      kind: "Cardio"
+    },  
+  ]
 
-      //allows the display according to the order of the titles : kinds
-      userPerformanceData.data.forEach((data,index) => {
-      switch (data.kind) {
-        case "Intensité":
-          performanceData[index].value = data.value  
-          break
-        case "Vitesse":
-          performanceData[index].value = data.value
-          break
-        case "Force":
-          performanceData[index].value = data.value          
-          break
-        case "Endurance":
-          performanceData[index].value = data.value
-          break
-        case "Energie":
-          performanceData[index].value = data.value          
-          break
-        case "Cardio":
-          performanceData[index].value = data.value
-          break                   
-        default:
-          break
+  //allows the display according to the order of the titles : kinds
+  userPerformanceData.data.forEach((data,index) => {
+    switch (data.kind) {
+      case "Intensité":
+        performanceData[index].value = data.value  
+        break
+      case "Vitesse":
+        performanceData[index].value = data.value
+        break
+      case "Force":
+        performanceData[index].value = data.value          
+        break
+      case "Endurance":
+        performanceData[index].value = data.value
+        break
+      case "Energie":
+        performanceData[index].value = data.value          
+        break
+      case "Cardio":
+        performanceData[index].value = data.value
+        break                   
+      default:
+        break
       }      
     })
   }    
