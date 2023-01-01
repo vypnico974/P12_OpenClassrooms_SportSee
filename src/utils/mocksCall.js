@@ -9,7 +9,12 @@ import PropTypes from 'prop-types'
  * @async
  * @description component that mock user infos data
  * @param {number} id - user id
- * @returns {object} response user infos data
+ * @returns {object<string>} firstname
+ * @returns {object<number>} score
+ * @returns {object<number>} calorieCount
+ * @returns {object<number>} proteinCount
+ * @returns {object<number>} carbohydrateCount
+ * @returns {object<number>} lipidCount
 */
 export const mockUserInfos = async (id) => {
 	try {
@@ -48,7 +53,8 @@ mockUserInfos.PropTypes = {
  * @async
  * @description component that mock user activity data
    @param {number} id - user id
- * @returns {object} response user activity data
+ * @returns {object<string>} error
+ * @returns {object<array>} sessions
 */
 export const mockUserActivity = async (id) => {
 	try {
@@ -76,7 +82,8 @@ mockUserActivity.PropTypes = {
  * @async
  * @description component that mock user average sessions data
  * @param {number} id - user id
- * @returns {object} response user average sessions data
+ * @returns {object<string>} error
+ * @returns {object<array>} sessions
 */
 export const mockUserAverageSessions = async (id) => {
 	try {
@@ -104,8 +111,10 @@ mockUserAverageSessions.PropTypes = {
  * @export
  * @async
  * @description component that mock user performance data
- *  @param {number} id - user id
- * @returns {object} response user performance data
+ * @param {number} id - user id
+ * @returns {object<string>} error
+ * @returns {object<string>} kind
+ * @returns {object<array>} data
 */
 export const mockUserPerformance = async (id) => {
 	try {

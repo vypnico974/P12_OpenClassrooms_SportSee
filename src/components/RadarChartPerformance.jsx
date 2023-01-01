@@ -30,17 +30,15 @@ const ContainerRadarChart = styled.div`
 */
 export default function RadarChartPerformance({data}) {
 
-  // console.log(typeof(data)) 
-  // console.log("radat chart perform:",data) 
   if (!data) return null
-
+ 
   return(
     <ContainerRadarChart>
       <ResponsiveContainer width="100%" height={263}>
         <RadarChart
           cx="50%"
           cy="50%"
-          data={data.data}
+          data={data}
           margin={{ top: 0, right: 30, bottom: 0, left: 50 }}
         >
         <PolarGrid radialLines={false} />
@@ -61,5 +59,5 @@ export default function RadarChartPerformance({data}) {
   )
 }
 RadarChartPerformance.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.array,
 }

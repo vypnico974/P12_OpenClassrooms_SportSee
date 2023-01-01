@@ -2,8 +2,9 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 
 /** 
- * @constant baseURL
- * @type {string} Api URL
+ * @constant 
+ * @type {string}
+ * @description Api URL
  * @default 
 */
 const baseURL = 'http://localhost:3000/'
@@ -14,7 +15,12 @@ const baseURL = 'http://localhost:3000/'
  * @async
  * @description component that axios data and return response user infos data
  * @param {number} id user id
- * @returns {object} response user infos data
+ * @returns {object<string>} firstname
+ * @returns {object<number>} score
+ * @returns {object<number>} calorieCount
+ * @returns {object<number>} proteinCount
+ * @returns {object<number>} carbohydrateCount
+ * @returns {object<number>} lipidCount
 */
 export const getUserInfos = async (id) => {
 	try {
@@ -53,7 +59,8 @@ getUserInfos.PropTypes = {
  * @async
  * @description component that axios data and return response user activity data
  * @param {number} id user id
- * @returns {object} response user activity data
+ * @returns {object<string>} error
+ * @returns {object<array>} sessions
 */
 export const getUserActivity = async (id) => {
 	try {
@@ -81,7 +88,8 @@ getUserActivity.PropTypes = {
  * @async
  * @description component that axios data and return response user average session data
  * @param {number} id user id
- * @returns {object} response user average session data
+ * @returns {object<string>} error
+ * @returns {object<array>} sessions
 */
 export const getUserAverageSessions = async (id) => {
 	try {
@@ -109,7 +117,9 @@ getUserAverageSessions.PropTypes = {
  * @async
  * @description component that axios data and return response user performance data
  * @param {number} id - user id
- * @returns {object} response user performance data
+ * @returns {object<string>} error
+ * @returns {object<string>} kind
+ * @returns {object<array>} data
 */
 export const getUserPerformance = async (id) => {
 	try {

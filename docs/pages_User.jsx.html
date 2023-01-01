@@ -98,7 +98,6 @@ width: 258px;
 height:124px;
 }
 `
-
 /**
  * @function User
  * @export
@@ -106,6 +105,7 @@ height:124px;
  * @return {HTMLElement} component generated HTML
 */
 export default function User() {
+
     
   const [userMainData, setUserMainData] = useState([])
   const [userActivityData, setUserActivityData] = useState([])
@@ -117,6 +117,7 @@ export default function User() {
   const [isLoadingPerformance, setIsLoadingPerformance] = useState(false)  
   const { id } = useParams()
   const idCurrent = parseInt(id)
+  let performanceData = []
 
 
   useEffect(() => {
@@ -189,6 +190,25 @@ export default function User() {
   }, [idCurrent])
 
 
+/** 
+  * @constant 
+  * @type {Array} 
+  * @description To change the data in days and show the first letter
+  *  of each day of the week
+  * @default 
+*/
+const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
+
+/** 
+  * @constant 
+  * @type {Array}
+  * @description To translate categories performance kinds in french
+  * @default 
+*/
+const PerformanceKinds = 
+  ["Cardio","Energie","Endurance","Force","Vitesse","Intensité"]
+
+
   // if data load, render spinner(loading)
   if ((isLoadingActivity) || (isLoadingMain) ||
   (isLoadingAverage) || (isLoadingPerformance) ) {
@@ -203,19 +223,67 @@ export default function User() {
   }
 
   if (userAverageSessionsData &amp;&amp; (userAverageSessionsData.sessions)){
-    //To change the data in days and show the first letter of each day of the week
-    const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
     WeekDaysFirstLetter.forEach((kind, index) => {
       userAverageSessionsData.sessions[index].day = kind
     })
   }
     
   if ((userPerformanceData) &amp;&amp; (userPerformanceData.data)) {       
-    //To translate categories performance kinds in french
-    const PerformanceKinds = 
-        ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
     PerformanceKinds.forEach((kind, index) => {
       userPerformanceData.data[index].kind = kind
+    })
+
+    performanceData = [
+      {
+          value: 0,
+          kind: "Intensité"
+      },
+      {
+        value: 0,
+        kind: "Vitesse"
+      },
+      {
+        value: 0,
+        kind: "Force"
+      },
+      {
+        value: 0,
+        kind: "Endurance"
+      },
+      {
+        value: 0,
+        kind: "Energie"
+      },
+      {
+        value: 0,
+        kind: "Cardio"
+      },  
+      ]
+
+      //allows the display according to the order of the titles : kinds
+      userPerformanceData.data.forEach((data,index) => {
+      switch (data.kind) {
+        case "Intensité":
+          performanceData[index].value = data.value  
+          break
+        case "Vitesse":
+          performanceData[index].value = data.value
+          break
+        case "Force":
+          performanceData[index].value = data.value          
+          break
+        case "Endurance":
+          performanceData[index].value = data.value
+          break
+        case "Energie":
+          performanceData[index].value = data.value          
+          break
+        case "Cardio":
+          performanceData[index].value = data.value
+          break                   
+        default:
+          break
+      }      
     })
   }    
 
@@ -227,28 +295,24 @@ export default function User() {
       
   return ( 
     &lt;Main>
-      { ((userMainData) &amp;&amp; (!userMainData.error)) &amp;&amp;
+      { ((userMainData)) &amp;&amp;
          &lt;UserInfo name={userMainData.firstName} /> } 
       &lt;Container>
         &lt;ContainerLeft>
           &lt;div>
-            {((userActivityData.sessions) &amp;&amp; (!userActivityData.error)) &amp;&amp; 
+            {(userActivityData.sessions) &amp;&amp; 
              &lt;BarChartActivity data={userActivityData.sessions}/>  } 
 
             &lt;ContainerLeftChart>
 
-              {((userAverageSessionsData.sessions) &amp;&amp; 
-              ((!userAverageSessionsData.error))) &amp;&amp; 
+            {(userAverageSessionsData.sessions) &amp;&amp; 
               &lt;LineChartSessions data={userAverageSessionsData.sessions}/> }
 
-              {((userPerformanceData) &amp;&amp; 
-              ((!userPerformanceData.error)) &amp;&amp; 
-              (userAverageSessionsData.sessions)) &amp;&amp; 
-              &lt;RadarChartPerformance data={userPerformanceData}/> }   
+              {(performanceData) &amp;&amp; 
+              &lt;RadarChartPerformance data={performanceData}/> }   
 
-              {((userMainData) &amp;&amp; 
-              ((!userMainData.error))) &amp;&amp; 
-              &lt;RadialBarChartScore data={userMainData.score}/> } 
+              {(userMainData) &amp;&amp; 
+              &lt;RadialBarChartScore data={userMainData.score}/> }
 
             &lt;/ContainerLeftChart>            
           &lt;/div> 
@@ -304,13 +368,13 @@ export default function User() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-tutorial.html">tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li><li><a href="global.html#renderColorfulLegendText">renderColorfulLegendText</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 17:30:49 GMT+0400 (heure normale de Maurice)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Jan 01 2023 14:05:57 GMT+0400 (heure normale de Maurice)
 </footer>
 
 <script> prettyPrint(); </script>

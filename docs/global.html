@@ -148,11 +148,16 @@
     
 
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>http://localhost:3000/</li>
+        </ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line4">line 4</a>
+        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -2384,7 +2389,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pages_User.jsx.html">pages/User.jsx</a>, <a href="pages_User.jsx.html#line74">line 74</a>
+        <a href="pages_User.jsx.html">pages/User.jsx</a>, <a href="pages_User.jsx.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -2711,7 +2716,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="getData"><span class="type-signature">(async) </span>getData<span class="signature">(type, id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getData"><span class="type-signature">(async) </span>getData<span class="signature">(type, id)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -2864,7 +2869,7 @@ choose between two users to simulate the app</p>
 
         
 <div class="param-desc">
-    <p>response data object of user</p>
+    <p>The data from the URL</p>
 </div>
 
 
@@ -2875,7 +2880,7 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">Object</span>
 
 
     </dd>
@@ -2893,7 +2898,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -2994,7 +2999,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line50">line 50</a>
+        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -3020,10 +3025,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user activity data</p>
+    <p>error</p>
 </div>
 
 
@@ -3034,13 +3039,33 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>sessions</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3052,7 +3077,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -3153,7 +3178,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line78">line 78</a>
+        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line85">line 85</a>
     </li></ul></dd>
     
 
@@ -3179,10 +3204,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user average session data</p>
+    <p>error</p>
 </div>
 
 
@@ -3193,13 +3218,33 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>sessions</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3211,7 +3256,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -3312,7 +3357,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line106">line 106</a>
+        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line114">line 114</a>
     </li></ul></dd>
     
 
@@ -3338,10 +3383,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user performance data</p>
+    <p>error</p>
 </div>
 
 
@@ -3352,13 +3397,53 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>kind</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;string></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>data</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3370,7 +3455,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="getUserInfos"><span class="type-signature">(async) </span>getUserInfos<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getUserInfos"><span class="type-signature">(async) </span>getUserInfos<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;number>|object.&lt;number>|object.&lt;number>|object.&lt;number>|object.&lt;number>}</span></h4>
     
 
     
@@ -3471,7 +3556,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line11">line 11</a>
+        <a href="utils_ApiCall.js.html">utils/ApiCall.js</a>, <a href="utils_ApiCall.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -3497,10 +3582,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user infos data</p>
+    <p>firstname</p>
 </div>
 
 
@@ -3511,13 +3596,113 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>score</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>calorieCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>proteinCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>carbohydrateCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>lipidCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3529,7 +3714,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="mockUserActivity"><span class="type-signature">(async) </span>mockUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="mockUserActivity"><span class="type-signature">(async) </span>mockUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -3630,7 +3815,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line45">line 45</a>
+        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line50">line 50</a>
     </li></ul></dd>
     
 
@@ -3656,10 +3841,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user activity data</p>
+    <p>error</p>
 </div>
 
 
@@ -3670,13 +3855,33 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>sessions</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3688,7 +3893,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="mockUserAverageSessions"><span class="type-signature">(async) </span>mockUserAverageSessions<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="mockUserAverageSessions"><span class="type-signature">(async) </span>mockUserAverageSessions<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -3789,7 +3994,7 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line73">line 73</a>
+        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -3815,10 +4020,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user average sessions data</p>
+    <p>error</p>
 </div>
 
 
@@ -3829,13 +4034,33 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>sessions</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -3847,7 +4072,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="mockUserInfos"><span class="type-signature">(async) </span>mockUserInfos<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="mockUserInfos"><span class="type-signature">(async) </span>mockUserInfos<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;number>|object.&lt;number>|object.&lt;number>|object.&lt;number>|object.&lt;number>}</span></h4>
     
 
     
@@ -3974,10 +4199,10 @@ choose between two users to simulate the app</p>
 
 
 <h5>Returns:</h5>
-
-        
+<ul>
+        <li>
 <div class="param-desc">
-    <p>response user infos data</p>
+    <p>firstname</p>
 </div>
 
 
@@ -3988,13 +4213,113 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">object.&lt;string></span>
 
 
     </dd>
 </dl>
-
+</li>
     
+        <li>
+<div class="param-desc">
+    <p>score</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>calorieCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>proteinCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>carbohydrateCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>lipidCount</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;number></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
 
 
 
@@ -4006,7 +4331,7 @@ choose between two users to simulate the app</p>
     
 
     
-    <h4 class="name" id="mockUserPerformance"><span class="type-signature">(async) </span>mockUserPerformance<span class="signature">(id)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="mockUserPerformance"><span class="type-signature">(async) </span>mockUserPerformance<span class="signature">(id)</span><span class="type-signature"> &rarr; {object.&lt;string>|object.&lt;string>|object.&lt;array>}</span></h4>
     
 
     
@@ -4107,7 +4432,206 @@ choose between two users to simulate the app</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line102">line 102</a>
+        <a href="utils_mocksCall.js.html">utils/mocksCall.js</a>, <a href="utils_mocksCall.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>error</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;string></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>kind</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;string></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>data</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object.&lt;array></span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="renderColorfulLegendText"><span class="type-signature"></span>renderColorfulLegendText<span class="signature">(value)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>color legend text using formatter</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_BarChartActivity.jsx.html">components/BarChartActivity.jsx</a>, <a href="components_BarChartActivity.jsx.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -4136,7 +4660,7 @@ choose between two users to simulate the app</p>
 
         
 <div class="param-desc">
-    <p>response user performance data</p>
+    <p>component generated HTML</p>
 </div>
 
 
@@ -4147,7 +4671,7 @@ choose between two users to simulate the app</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">HTMLElement</span>
 
 
     </dd>
@@ -4175,13 +4699,13 @@ choose between two users to simulate the app</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-tutorial.html">tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li><li><a href="global.html#renderColorfulLegendText">renderColorfulLegendText</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 17:30:50 GMT+0400 (heure normale de Maurice)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Jan 01 2023 14:05:57 GMT+0400 (heure normale de Maurice)
 </footer>
 
 <script> prettyPrint(); </script>

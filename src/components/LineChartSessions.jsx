@@ -40,8 +40,7 @@ const Title = styled.h2`
 export default function LineChartSessions({data}) {
 
     if (!data) return null
-    //console.log(typeof(data)) 
-    //console.log("data LineChart:", data)
+
       return(
         <ContainerLineChart>
           <ChartTitle>

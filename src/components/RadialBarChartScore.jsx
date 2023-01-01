@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // recharts components
-import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts'
+import { ResponsiveContainer, RadialBarChart, RadialBar} from 'recharts'
 
 /* RadialBarChart component style  */
 const ContainerRadialBarChart = styled.div`
@@ -57,11 +57,10 @@ const Score = styled.span`
 */
 export default function RadialBarChartScore({data}) {
 
-   // console.log(typeof(data))
-    // console.log(data)
-    if (!data) return null
+    // if data undefined or not number
+    if ((!data) || (isNaN(data))) return null
     
-    /* to define colored circle part and transparent circle part  */
+    // to define colored circle part and transparent circle part
     const score =  [
         {
           "fill": "#FF0000",

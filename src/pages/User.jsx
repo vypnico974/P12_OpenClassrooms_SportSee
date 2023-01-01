@@ -70,7 +70,6 @@ width: 258px;
 height:124px;
 }
 `
-
 /**
  * @function User
  * @export
@@ -78,6 +77,7 @@ height:124px;
  * @return {HTMLElement} component generated HTML
 */
 export default function User() {
+
     
   const [userMainData, setUserMainData] = useState([])
   const [userActivityData, setUserActivityData] = useState([])
@@ -89,6 +89,7 @@ export default function User() {
   const [isLoadingPerformance, setIsLoadingPerformance] = useState(false)  
   const { id } = useParams()
   const idCurrent = parseInt(id)
+  let performanceData = []
 
 
   useEffect(() => {
@@ -161,6 +162,25 @@ export default function User() {
   }, [idCurrent])
 
 
+/** 
+  * @constant 
+  * @type {Array} 
+  * @description To change the data in days and show the first letter
+  *  of each day of the week
+  * @default 
+*/
+const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
+
+/** 
+  * @constant 
+  * @type {Array}
+  * @description To translate categories performance kinds in french
+  * @default 
+*/
+const PerformanceKinds = 
+  ["Cardio","Energie","Endurance","Force","Vitesse","Intensité"]
+
+
   // if data load, render spinner(loading)
   if ((isLoadingActivity) || (isLoadingMain) ||
   (isLoadingAverage) || (isLoadingPerformance) ) {
@@ -175,19 +195,67 @@ export default function User() {
   }
 
   if (userAverageSessionsData && (userAverageSessionsData.sessions)){
-    //To change the data in days and show the first letter of each day of the week
-    const WeekDaysFirstLetter = ["L", "M", "M", "J", "V", "S", "D"]
     WeekDaysFirstLetter.forEach((kind, index) => {
       userAverageSessionsData.sessions[index].day = kind
     })
   }
     
   if ((userPerformanceData) && (userPerformanceData.data)) {       
-    //To translate categories performance kinds in french
-    const PerformanceKinds = 
-        ["Cardio","Energie","Endurance","Force","vitesse","Intensité"]
     PerformanceKinds.forEach((kind, index) => {
       userPerformanceData.data[index].kind = kind
+    })
+
+    performanceData = [
+      {
+          value: 0,
+          kind: "Intensité"
+      },
+      {
+        value: 0,
+        kind: "Vitesse"
+      },
+      {
+        value: 0,
+        kind: "Force"
+      },
+      {
+        value: 0,
+        kind: "Endurance"
+      },
+      {
+        value: 0,
+        kind: "Energie"
+      },
+      {
+        value: 0,
+        kind: "Cardio"
+      },  
+      ]
+
+      //allows the display according to the order of the titles : kinds
+      userPerformanceData.data.forEach((data,index) => {
+      switch (data.kind) {
+        case "Intensité":
+          performanceData[index].value = data.value  
+          break
+        case "Vitesse":
+          performanceData[index].value = data.value
+          break
+        case "Force":
+          performanceData[index].value = data.value          
+          break
+        case "Endurance":
+          performanceData[index].value = data.value
+          break
+        case "Energie":
+          performanceData[index].value = data.value          
+          break
+        case "Cardio":
+          performanceData[index].value = data.value
+          break                   
+        default:
+          break
+      }      
     })
   }    
 
@@ -199,28 +267,24 @@ export default function User() {
       
   return ( 
     <Main>
-      { ((userMainData) && (!userMainData.error)) &&
+      { ((userMainData)) &&
          <UserInfo name={userMainData.firstName} /> } 
       <Container>
         <ContainerLeft>
           <div>
-            {((userActivityData.sessions) && (!userActivityData.error)) && 
+            {(userActivityData.sessions) && 
              <BarChartActivity data={userActivityData.sessions}/>  } 
 
             <ContainerLeftChart>
 
-              {((userAverageSessionsData.sessions) && 
-              ((!userAverageSessionsData.error))) && 
+            {(userAverageSessionsData.sessions) && 
               <LineChartSessions data={userAverageSessionsData.sessions}/> }
 
-              {((userPerformanceData) && 
-              ((!userPerformanceData.error)) && 
-              (userAverageSessionsData.sessions)) && 
-              <RadarChartPerformance data={userPerformanceData}/> }   
+              {(performanceData) && 
+              <RadarChartPerformance data={performanceData}/> }   
 
-              {((userMainData) && 
-              ((!userMainData.error))) && 
-              <RadialBarChartScore data={userMainData.score}/> } 
+              {(userMainData) && 
+              <RadialBarChartScore data={userMainData.score}/> }
 
             </ContainerLeftChart>            
           </div> 

@@ -27,11 +27,11 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/* data api  */
-// import {getUserInfos, getUserActivity, getUserAverageSessions, getUserPerformance}
-//     from './ApiCall'
+import {getUserInfos, getUserActivity, getUserAverageSessions, getUserPerformance}
+    from './ApiCall'
 /* data mock  */    
-import {mockUserInfos, mockUserActivity, mockUserAverageSessions, mockUserPerformance }
-    from './mocksCall'
+// import {mockUserInfos, mockUserActivity, mockUserAverageSessions, mockUserPerformance }
+//     from './mocksCall'
 
 import PropTypes from 'prop-types'
 
@@ -43,40 +43,41 @@ import PropTypes from 'prop-types'
  * @description component that mock or axios data and return data object based on two parameters
  * @param {string} type - data type selection
  * @param {number} id - user id of data
- * @returns {object} response data object of user
+ * @return {Object} The data from the URL
+ * 
 */
 export const getData = async (type, id) => {
     let data = []
 
     switch (type) {
-      // case "USER_ACTIVITY":
-      //   data = await getUserActivity(id)
-      //  //console.log(typeof(data))
-      //   break
-      // case "USER_PERFORMANCE":
-      //   data = await getUserPerformance(id)
-      //   break
-      // case "USER_AVERAGE_SESSIONS":
-      //   data = await getUserAverageSessions(id)
-      //   break;
-      // case "USER_MAIN_DATA":
-      //   data = await getUserInfos(id)
-      //  // console.log(data)
-      //   break
+      case "USER_ACTIVITY":
+        data = await getUserActivity(id)
+       //console.log(typeof(data))
+        break
+      case "USER_PERFORMANCE":
+        data = await getUserPerformance(id)
+        break
+      case "USER_AVERAGE_SESSIONS":
+        data = await getUserAverageSessions(id)
+        break;
+      case "USER_MAIN_DATA":
+        data = await getUserInfos(id)
+       // console.log(data)
+        break
 
-        case "USER_ACTIVITY":
-            data = await mockUserActivity(id)
-            break
-          case "USER_PERFORMANCE":
-            data = await mockUserPerformance(id)
-            break
-          case "USER_AVERAGE_SESSIONS":
-            data = await mockUserAverageSessions(id)
-            break;
-          case "USER_MAIN_DATA":
-            data = await mockUserInfos(id)
-            //console.log(data)
-            break
+        // case "USER_ACTIVITY":
+        //     data = await mockUserActivity(id)
+        //     break
+        //   case "USER_PERFORMANCE":
+        //     data = await mockUserPerformance(id)
+        //     break
+        //   case "USER_AVERAGE_SESSIONS":
+        //     data = await mockUserAverageSessions(id)
+        //     break;
+        //   case "USER_MAIN_DATA":
+        //     data = await mockUserInfos(id)
+        //     //console.log(data)
+        //     break
     
         default : return []
     }
@@ -95,13 +96,13 @@ getData.PropTypes = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-tutorial.html">tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartActivity">BarChartActivity</a></li><li><a href="global.html#Community">Community</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Keydata">Keydata</a></li><li><a href="global.html#LineChartSessions">LineChartSessions</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#RadarChartPerformance">RadarChartPerformance</a></li><li><a href="global.html#RadialBarChartScore">RadialBarChartScore</a></li><li><a href="global.html#Setting">Setting</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#mockUserActivity">mockUserActivity</a></li><li><a href="global.html#mockUserAverageSessions">mockUserAverageSessions</a></li><li><a href="global.html#mockUserInfos">mockUserInfos</a></li><li><a href="global.html#mockUserPerformance">mockUserPerformance</a></li><li><a href="global.html#renderColorfulLegendText">renderColorfulLegendText</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 17:30:49 GMT+0400 (heure normale de Maurice)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Jan 01 2023 14:05:57 GMT+0400 (heure normale de Maurice)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -31,13 +31,13 @@ padding-top:20px;
 export default function BarChartActivity({data}) {
 
     if (!data) return null
-    // console.log(typeof(data)) 
-    // console.log("data BarChart:", data)   
 
-     /** the color legend text using formatter
+    /** 
+     * @function renderColorfulLegendText
+     * @description color legend text using formatter
      * @param  {string} value
      * @return {HTMLElement} component generated HTML
-     */
+    */
     const renderColorfulLegendText = (value) => {
         return <span style={{ color: "#74798C" }}>{value}</span>
     }
@@ -64,13 +64,13 @@ export default function BarChartActivity({data}) {
             strokeDasharray="3 3"
             vertical={false}
             stroke="#DEDEDE"
-            strokeWidth={1.5}
+            strokeWidth={1}
           />
           <XAxis
             dataKey={"day"}
             tickLine={false}
             stroke="#DEDEDE"
-            strokeWidth={2}
+            strokeWidth={1}
             tick={{ fill: "#9B9EAC", fontSize: "14", fontWeight: "500" }}
           />
           <YAxis
