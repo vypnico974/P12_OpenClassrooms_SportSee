@@ -20,6 +20,8 @@ const ContainerRadarChart = styled.div`
  * @function RadarChartPerformance
  * @export
  * @description component that render radar chart with user performance data
+ * @see for more info RadarChart
+ * {@link https://recharts.org/en-US/api/RadarChart RadarChart}
  * @param  {Object} data
  * @param {string} data.error - error data
  * @param {Array} data.kind - performance kind

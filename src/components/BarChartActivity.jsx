@@ -22,6 +22,8 @@ padding-top:20px;
  * @function BarChartActivity
  * @export
  * @description component that render bart chart with user activity data(sessions)
+ * @see for more info BarChart
+ * {@link https://recharts.org/en-US/api/BarChart BarChart} 
  * @param  {Object} data - user activity data(sessions)
  * @param {number} data.day - day number
  * @param {number} data.calories - calories number
@@ -35,7 +37,7 @@ export default function BarChartActivity({data}) {
     /** 
      * @function renderColorfulLegendText
      * @description color legend text using formatter
-     * @param  {string} value
+     * @param  {string} value - text
      * @return {HTMLElement} component generated HTML
     */
     const renderColorfulLegendText = (value) => {
@@ -82,14 +84,14 @@ export default function BarChartActivity({data}) {
             axisLine={false}
             orientation="right"
             type="number"
-            domain={[67, 83]}
+            domain={["dataMin - 1", "dataMax +2"]}
             yAxisId={0}
             tick={{ fill: "#9B9EAC", fontSize: "14", fontWeight: "500" }}
           />
           <YAxis
             dataKey={"calories"}
             hide={true}
-            domain={["dataMin - 100", "dataMax +10"]}
+            domain={["dataMin - 100", "dataMax +50"]}
             yAxisId={1}
           />
           <Tooltip
@@ -100,7 +102,7 @@ export default function BarChartActivity({data}) {
             }}
             // to display the unit and its value
             formatter={(value, name, unit) => [value, unit]}
-            // to style the label container
+            // to style the label container Tooltip
             labelStyle={{ display: "none" }}
             contentStyle={{
               backgroundColor: "#E60000",
@@ -135,12 +137,11 @@ export default function BarChartActivity({data}) {
             fill="#282D30"
             name="Poids(kg)"
             unit={"kg"}
-            yAxisId={0}
             barSize={10}
             radius={[10, 10, 0, 0]}
           />
           <Bar
-            dataKey="calories"
+            dataKey="calories"  
             fill="#E60000"
             name="Calories brûlées (Kcal)"
             unit={"kCal"}

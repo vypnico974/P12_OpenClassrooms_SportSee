@@ -19,7 +19,7 @@ const ChartTitle = styled.div`
   font-size: 15px;
   font-weight: 500;
   width: 170px;
-`;
+`
 const Title = styled.h2`
   font-size: 15px;
   font-weight: 500;
@@ -32,6 +32,8 @@ const Title = styled.h2`
  * @function LineChartSessions
  * @export
  * @description component that render line chart with user activity data(sessions)
+ * @see for more info LineChart
+ * {@link https://recharts.org/en-US/api/LineChart LineChart}
  * @param  {Object} data - average session data
  * @param {string} data.day - the first letter of the day of the week
  * @param {value} data.sessionLength - session duration
@@ -66,7 +68,7 @@ export default function LineChartSessions({data}) {
             tickLine={false}
             axisLine={false}
             tick={{ fill: "#FFFFFF", fontSize: "12px", fontWeight: "500" }}
-            interval={"preserveStartEnd"}
+        
           />
           <YAxis
             tickLine={false}
@@ -95,9 +97,8 @@ export default function LineChartSessions({data}) {
             type="monotone"
             dataKey="sessionLength"
             stroke="#fff"
-            strokeWidth={1.7}
+            strokeWidth={2}
             dot={false}
-            activeDot={{ r: 4 }}
             unit={"min"}
           />
         </LineChart>

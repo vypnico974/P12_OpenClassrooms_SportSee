@@ -3,6 +3,7 @@ import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE}
     from '../__mocks__/mocksData'
 import PropTypes from 'prop-types'
 
+
 /**
  * @function mockUserInfos
  * @export
@@ -29,7 +30,7 @@ export const mockUserInfos = async (id) => {
 			carbohydrateCount: reponse.keyData.carbohydrateCount,
 			lipidCount: reponse.keyData.lipidCount
 		}				
-		} catch (e) {
+	} catch (e) {
 		console.log(e)
 		return {
 			error:'error',

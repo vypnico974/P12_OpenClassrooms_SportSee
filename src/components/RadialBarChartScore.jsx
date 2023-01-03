@@ -19,7 +19,7 @@ border-radius: 5px;
 const Title = styled.h2`
     position relative;
     margin-left:120px;
-    transform: translate(-70%, 0%);
+    transform: translate(-60%, 80%);
     font-weight: 500;
     font-size: 0.94rem;
     line-height: 24px;
@@ -52,10 +52,14 @@ const Score = styled.span`
  * @function RadialBarChartScore
  * @export
  * @description render radial bar chart with score today
+ * @see for more info RadialBarChart
+ * {@link https://recharts.org/en-US/api/RadialBarChart RadialBarChart}
  * @param  {number} score - score today 
  * @return {HTMLElement} component generated HTML
 */
 export default function RadialBarChartScore({data}) {
+
+   // data = 1
 
     // if data undefined or not number
     if ((!data) || (isNaN(data))) return null
@@ -75,7 +79,7 @@ export default function RadialBarChartScore({data}) {
         <ContainerRadialBarChart>
             <Title>Score</Title>
             <ResponsiveContainer width="100%" height={183}>
-                <RadialBarChart barSize={15} data={score} endAngle={450} height={250} innerRadius="100%" startAngle={90} width={250}>
+                <RadialBarChart barSize={10} data={score} endAngle={450} height={250} innerRadius="100%" startAngle={90} width={250}>
                     <RadialBar dataKey="value" />
                 </RadialBarChart>
             </ResponsiveContainer>

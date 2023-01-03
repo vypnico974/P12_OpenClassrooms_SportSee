@@ -14,8 +14,8 @@ import PropTypes from 'prop-types'
  * @async
  * @description component that mock or axios data and return data object based on two parameters
  * @param {string} type - data type selection
- * @param {number} id - user id of data
- * @return {Object} The data from the URL
+ * @param {number} id - user id 
+ * @return {Object} The data from the endpoint
  * 
 */
 export const getData = async (type, id) => {
@@ -33,6 +33,7 @@ export const getData = async (type, id) => {
       break
     case "USER_MAIN_DATA":
       data = await getUserInfos(id)
+     // console.log("data getUserInfos : ", data )
       break
 
         // case "USER_ACTIVITY":
