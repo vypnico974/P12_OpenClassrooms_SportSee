@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import {getData} from '../utils/getData'
 //components
 import UserInfo from '../components/UserInfo'
-import KeyData from '../components/keyData'
+import KeyData from '../components/KeyData'
 import BarChartActivity from '../components/BarChartActivity'
 import LineChartSessions from '../components/LineChartSessions'
 import RadarChartPerformance from '../components/RadarChartPerformance'
